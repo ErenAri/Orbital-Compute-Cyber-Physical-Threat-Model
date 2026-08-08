@@ -1,7 +1,7 @@
 """Deterministic statistics for the WRB-001 robustness campaign.
 
-The campaign is an exploratory characterization of the reconstructed TSM-01
-model.  These helpers deliberately reject non-finite values instead of letting
+The campaign is an exploratory characterization using the canonical v0.4.4
+TSM-01 model. These helpers deliberately reject non-finite values instead of letting
 NaN or infinity leak into authoritative output.
 """
 
@@ -196,11 +196,11 @@ def classify_robustness(
     elif shaped_material or benign_material:
         label = "CONDITIONAL"
     else:
-        label = "NOT ROBUST"
+        label = "NOT_ROBUST"
 
     return {
         "label": label,
-        "scope": "workload-timing sensitivity in reconstructed TSM-01 assumptions",
+        "scope": "workload-timing sensitivity using the canonical v0.4.4 TSM-01 baseline",
         "attack_validation": False,
         "material_delta_K": float(config.material_delta_K),
         "robust_min_benign_families": int(config.robust_min_benign_families),

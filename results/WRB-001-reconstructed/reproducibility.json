@@ -1,0 +1,23 @@
+{
+  "all_authoritative_files_byte_identical": true,
+  "artifact_type": "reproducibility_check",
+  "campaign_id": "WRB-001",
+  "files": {
+    "runs.csv": {
+      "byte_identical": true,
+      "primary_sha256": "3995ab985bf8cf7375053da66a0074e4ae95df62091a483aafa4680631966971",
+      "reproduction_sha256": "3995ab985bf8cf7375053da66a0074e4ae95df62091a483aafa4680631966971"
+    },
+    "runs.jsonl": {
+      "byte_identical": true,
+      "primary_sha256": "f55b5dde4d3ba7a44beb507ac68ca9996c623ce599c2b5224825f3c727fac028",
+      "reproduction_sha256": "f55b5dde4d3ba7a44beb507ac68ca9996c623ce599c2b5224825f3c727fac028"
+    },
+    "summary.json": {
+      "byte_identical": true,
+      "primary_sha256": "934a8d29239f13afd1a1e930fd424cc366b7db8677974880b8f1b24c6e4ae808",
+      "reproduction_sha256": "934a8d29239f13afd1a1e930fd424cc366b7db8677974880b8f1b24c6e4ae808"
+    }
+  },
+  "scope": "two independent complete runs using seeds 0..99"
+}

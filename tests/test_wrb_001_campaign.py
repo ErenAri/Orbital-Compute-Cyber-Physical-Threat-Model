@@ -8,6 +8,9 @@ import math
 
 import pytest
 
+import wrb_001_campaign
+from compare_wrb_001_migration import compare
+
 from wrb_001_campaign import (
     DEFAULT_CONFIG_PATH,
     RUN_FIELDS,
@@ -18,6 +21,11 @@ from wrb_001_campaign import (
     write_outputs,
 )
 from wrb_001_workloads import WORKLOAD_IDS
+
+
+def test_campaign_imports_canonical_adapter_not_reconstruction() -> None:
+    assert wrb_001_campaign.simulate_thermal.__module__ == "src.octm.adapters.v044"
+    assert "legacy" not in wrb_001_campaign.simulate_thermal.__module__
 
 
 @pytest.fixture(scope="module")
@@ -125,3 +133,32 @@ def test_statistics_exclude_invalid_runs_but_retain_counts(
     assert workload["invalid_reasons"] == {"INVALID_ENERGY_MATCH": 1}
     assert workload["metrics"]["peak_node_temperature_K"]["n"] == 1
     assert workload["metrics"]["peak_node_temperature_K"]["max"] < 1.0e12
+
+
+def test_migration_comparison_artifact_generation(
+    tmp_path: Path, two_seed_campaign: tuple[list[dict], dict]
+) -> None:
+    runs, summary = two_seed_campaign
+    config = load_config(DEFAULT_CONFIG_PATH)
+    canonical_dir = tmp_path / "canonical"
+    write_outputs(runs, summary, config=config, output_dir=canonical_dir)
+    result = compare(Path("results/WRB-001-reconstructed"), canonical_dir)
+    assert result["artifact_type"] == "wrb_001_migration_comparison"
+    assert set(result["workloads"]) == set(WORKLOAD_IDS)
+    assert result["classification"]["reconstructed"] in {
+        "ROBUST", "CONDITIONAL", "NOT_ROBUST", "NOT ROBUST"
+    }
+
+
+def test_full_campaign_rerun_artifacts_are_byte_identical() -> None:
+    result = json.loads(
+        Path("results/WRB-001/reproducibility.json").read_text(encoding="utf-8")
+    )
+    primary = json.loads(Path("results/WRB-001/summary.json").read_text(encoding="utf-8"))
+    reproduction = json.loads(
+        Path("results/WRB-001/repro-check/summary.json").read_text(encoding="utf-8")
+    )
+    assert primary["n_paired_seeds"] == 100
+    assert primary == reproduction
+    assert result["all_authoritative_files_byte_identical"] is True
+    assert all(item["byte_identical"] for item in result["files"].values())

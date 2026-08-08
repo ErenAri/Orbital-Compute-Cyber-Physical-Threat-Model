@@ -1,78 +1,67 @@
 # WRB-001 — Paired-Seed Workload Robustness Campaign
 
-WRB-001 characterizes workload-timing sensitivity in the reconstructed TSM-01
-two-node model. It does not validate an attack, a vulnerability, or a deployed
-orbital-compute architecture.
+WRB-001 characterizes workload-timing sensitivity using the canonical v0.4.4
+TSM-01 two-node model. It does not validate an attack, a vulnerability, or a
+deployed orbital-compute architecture.
 
-## Baseline boundary
+## Baseline and migration provenance
 
-The workspace supplied only the v0.4.4 DOCX, release notes, QA report, and
-`results_v044.json`; the historical Python source and release manifest were not
-available. The implementation therefore reconstructs the standard two-node
-equations and parameters documented by v0.4.4. It preserves the four supplied
-artefacts byte-for-byte and labels every new result as reconstructed.
+The manifested sources in `src/octm/baselines/v044/` are the authoritative
+scientific baseline. `src/octm/adapters/v044.py` converts WRB arrays into the
+historical API and does not reimplement or modify the model. Run
+`python verify_baseline_v044.py` first; WRB migration is valid only when
+`results/baseline_v044_verification.json` reports `PASS`.
 
-The reconstructed equations are independently checked against the published
-fixed-forcing convergence values. The stochastic W1 and W5 formulas cannot be
-claimed byte-identical to their missing historical implementations.
+An earlier campaign used a transparent reconstruction because the historical
+sources had not yet been supplied. Its implementation and outputs are retained
+under `legacy/reconstructed_v044/` and `results/WRB-001-reconstructed/` for
+provenance. They are non-authoritative. The canonical WRB-001 outputs under
+`results/WRB-001/` supersede them.
 
-## Pairing and RNG streams
+## Pairing, RNG, and energy
 
-Seeds 0–99 are authoritative. Each workload receives a stable child seed
-derived from `(campaign, run seed, workload id)`, so changing workload execution
-order cannot change a trace. The physical/environmental model is deterministic
-and its realization hash is shared by all six workloads in every pair. No new
-physical-parameter uncertainty is injected because that would change the frozen
-model assumptions.
+Seeds 0–99 are authoritative. Each workload gets a stable child seed derived
+from `(campaign, seed, workload id)`, independent of execution order. W1 passes
+that explicit `numpy.random.Generator` directly to canonical `load_nominal`;
+W5 passes its explicit generator to canonical `load_phase_locked`. Neither
+wrapper uses hidden/global RNG state. Child seeds use the canonical source's
+`default_rng`/PCG64 family and are recorded in every run.
 
-## Energy reference and interval
-
-All comparisons use the half-open interval beginning after two complete warmup
-orbits and spanning six complete measurement orbits. W1's sampled compute
-energy for a seed is the pairing target; W0 and W2–W5 must match it within 0.1%
-(with 0.01% preferred). An infeasible constrained trace is retained as
-`INVALID_ENERGY_MATCH`; it is never silently clipped into validity.
-
-W0 is the primary constant reference for `delta_peak_temperature_vs_reference_K`.
-The campaign also records deltas versus W1 so the historical benign/shaped
-comparison can be inspected without redefining the primary reference.
+Every paired workload shares the same deterministic physical/environmental
+realization. Comparisons use the exact canonical half-open post-warmup interval:
+two warmup orbits followed by six complete measurement orbits at `dt=1 s`.
+W1 sampled compute energy is the per-seed target. W0 and W2–W5 must match it
+within 0.1% (0.01% preferred); infeasible traces remain explicitly
+`INVALID_ENERGY_MATCH` and are never silently clipped into validity.
 
 ## Workloads and allowed information
 
-- W0 `constant_reference`: constant power equal to W1's measured mean.
-- W1 `diversified_stochastic`: transparent reconstruction of the documented
-  synthetic diversified stochastic workload.
-- W2 `bursty_benign`: stochastic arrivals and bounded bursts; no orbital or
+- W0 `constant_reference`: constant power equal to W1's measurement mean.
+- W1 `diversified_stochastic`: canonical v0.4.4 `load_nominal`.
+- W2 `bursty_benign`: synthetic bounded stochastic bursts; no orbital or
   thermal input.
-- W3 `queue_driven_benign`: synthetic jobs, backlog, service, and dispatch; no
-  orbital or thermal input.
-- W4 `power_aware_benign`: observes only an abstract electrical-power
-  availability series and its own RNG. Its function does not accept node or
-  radiator temperature, environmental heat flux, or the thermal hot indicator.
-- W5 `phase_shaped_candidate`: may observe the documented orbital hot-phase
-  indicator. It is an adversarial candidate, not a validated attack.
+- W3 `queue_driven_benign`: synthetic FIFO jobs and dispatch; no orbital or
+  thermal input.
+- W4 `power_aware_benign`: may observe only time, its explicit RNG, and the
+  caller-supplied dimensionless electrical-availability signal in `[0,1]`.
+  It cannot observe node/radiator temperatures, environmental heat flux, or
+  the hot-phase thermal indicator.
+- W5 `phase_shaped_candidate`: canonical v0.4.4 `load_phase_locked`; it uses the
+  canonical hot-phase convention. It is an adversarial candidate, not a
+  validated attack.
 
-Electrical availability can remain correlated with orbital phase; W4 is
-therefore described as non-thermal-input benign scheduling, not as causally
-independent of the orbital environment.
-
-## Run
+## Commands and outputs
 
 ```text
+python verify_baseline_v044.py
 python run_wrb_001.py
+python compare_wrb_001_migration.py
 python plot_wrb_001.py
 python verify_wrb_001_reproducibility.py results/WRB-001 results/WRB-001/repro-check --output results/WRB-001/reproducibility.json
 python -m pytest -q
 ```
 
-Use `python run_wrb_001.py --seeds 0 1` for a short smoke test. Authoritative
-outputs are `results/WRB-001/runs.csv`, `runs.jsonl`, and `summary.json`.
-
-## Classification
-
-The exploratory campaign rule calls a family material when its median absolute
-paired peak-temperature delta is at least 1 K and its paired-seed percentile
-bootstrap 95% interval excludes zero in the same direction. `ROBUST` requires
-the shaped candidate and at least two benign families; `CONDITIONAL` indicates
-more limited dependence; otherwise the result is `NOT_ROBUST`. These are
-campaign labels, not safety-certification or hardware thresholds.
+The classification rule is exploratory: `ROBUST` requires a material shaped
+candidate and at least two material benign workload families; `CONDITIONAL`
+indicates narrower dependence; otherwise the label is `NOT_ROBUST`. These are
+campaign labels, not hardware thresholds or safety certification.

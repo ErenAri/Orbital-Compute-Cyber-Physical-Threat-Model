@@ -5,6 +5,8 @@ import inspect
 import numpy as np
 import pytest
 
+from src.octm.baselines.v044 import thermal_model as canonical_v044
+
 from wrb_001_workloads import (
     CANONICAL_DT_S,
     INVALID_ENERGY_MATCH,
@@ -33,7 +35,7 @@ def campaign_inputs() -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     time_s = np.arange(n, dtype=np.float64)
     measurement_mask = np.zeros(n, dtype=bool)
     measurement_mask[200:1_100] = True
-    hot_mask = (time_s % 100.0) < 60.0
+    hot_mask = np.asarray(canonical_v044.in_hot_phase(time_s, canonical_v044.P), dtype=bool)
     # This is an abstract electrical signal, not the thermal hot indicator.
     power_availability = 0.15 + 0.85 * (0.5 + 0.5 * np.sin(time_s / 73.0))
     return time_s, measurement_mask, hot_mask, power_availability
@@ -112,7 +114,7 @@ def test_workload_subseeds_are_stable_unique_and_order_independent() -> None:
     rng, lineage = make_workload_rng(12, W1_DIVERSIFIED_STOCHASTIC)
     assert isinstance(rng, np.random.Generator)
     assert lineage.rng_seed == forward[W1_DIVERSIFIED_STOCHASTIC]
-    assert lineage.rng_algorithm == "numpy.PCG64DXSM"
+    assert lineage.rng_algorithm == "numpy.PCG64 (default_rng)"
     assert lineage.derivation_path.endswith("diversified_stochastic/generation")
 
 
@@ -170,25 +172,14 @@ def test_power_aware_generator_cannot_receive_hot_or_thermal_state(
     assert diagnostics["thermal_or_hot_state_observed"] is False
 
 
-def test_changing_hot_mask_changes_only_w5(
+def test_noncanonical_hot_mask_is_rejected(
     campaign_inputs: tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray],
 ) -> None:
     time_s, measurement, hot, availability = campaign_inputs
-    first = generate_workloads(8, time_s, measurement, 1.0, hot, availability)
-    shifted_hot = np.roll(hot, 17)
-    second = generate_workloads(8, time_s, measurement, 1.0, shifted_hot, availability)
-
-    for workload_id in WORKLOAD_IDS:
-        if workload_id == W5_PHASE_SHAPED_CANDIDATE:
-            assert first[workload_id].trace_sha256 != second[workload_id].trace_sha256
-        else:
-            assert first[workload_id].trace_sha256 == second[workload_id].trace_sha256
-    assert "hot_mask" not in first[W4_POWER_AWARE_BENIGN].allowed_inputs
-    assert first[W4_POWER_AWARE_BENIGN].allowed_inputs == (
-        "time_s",
-        "power_availability",
-        "rng",
-    )
+    shifted_hot = hot.copy()
+    shifted_hot[0] = ~shifted_hot[0]
+    with pytest.raises(ValueError, match="canonical v0.4.4"):
+        generate_workloads(8, time_s, measurement, 1.0, shifted_hot, availability)
 
 
 def test_changing_availability_changes_w4_but_not_w5(
@@ -253,17 +244,52 @@ def test_noncanonical_grid_or_measurement_window_is_rejected(
         generate_workloads(0, time_s, measurement, dt_s, hot, availability)
 
 
-def test_w1_and_w5_disclose_reconstruction_and_candidate_status(
+def test_w1_and_w5_disclose_canonical_source_and_candidate_status(
     campaign_inputs: tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray],
 ) -> None:
     workloads = generate_workloads(5, *campaign_inputs[:2], 1.0, *campaign_inputs[2:])
-    assert "source code absent" in workloads[W1_DIVERSIFIED_STOCHASTIC].diagnostics[
-        "historical_status"
-    ]
+    assert workloads[W1_DIVERSIFIED_STOCHASTIC].diagnostics["historical_status"] == (
+        "canonical_manifested_source"
+    )
     w5 = workloads[W5_PHASE_SHAPED_CANDIDATE]
-    assert "source code absent" in w5.diagnostics["historical_status"]
+    assert w5.diagnostics["historical_status"] == "canonical_manifested_source"
     assert w5.diagnostics["classification"] == "adversarial candidate; not a validated attack"
     assert "adversarial candidate" in w5.label
+
+
+def test_w1_wrapper_is_exact_canonical_historical_generator(
+    campaign_inputs: tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray],
+) -> None:
+    time_s = campaign_inputs[0]
+    wrapper_rng = np.random.default_rng(1234)
+    direct_rng = np.random.default_rng(1234)
+    wrapped, diagnostics = generate_diversified_stochastic(
+        time_s=time_s, rng=wrapper_rng, config=WorkloadConfig()
+    )
+    direct = canonical_v044.load_nominal(time_s, canonical_v044.P, direct_rng)
+    np.testing.assert_array_equal(wrapped, direct)
+    assert diagnostics["generator"] == "canonical_v0.4.4.load_nominal"
+
+
+def test_w5_wrapper_is_exact_canonical_historical_generator_before_energy_match(
+    campaign_inputs: tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray],
+) -> None:
+    from wrb_001_workloads import generate_phase_shaped_candidate
+
+    time_s, measurement, hot, _ = campaign_inputs
+    wrapper_rng = np.random.default_rng(5678)
+    direct_rng = np.random.default_rng(5678)
+    wrapped, diagnostics = generate_phase_shaped_candidate(
+        time_s=time_s,
+        measurement_mask=measurement,
+        hot_mask=hot,
+        target_energy_J=1.0,
+        rng=wrapper_rng,
+        config=WorkloadConfig(),
+    )
+    direct = canonical_v044.load_phase_locked(time_s, canonical_v044.P, direct_rng)
+    np.testing.assert_array_equal(wrapped, direct)
+    assert diagnostics["generator"] == "canonical_v0.4.4.load_phase_locked"
 
 
 def test_availability_contract_rejects_implicit_units(
