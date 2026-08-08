@@ -144,6 +144,10 @@ def test_migration_comparison_artifact_generation(
     write_outputs(runs, summary, config=config, output_dir=canonical_dir)
     result = compare(Path("results/WRB-001-reconstructed"), canonical_dir)
     assert result["artifact_type"] == "wrb_001_migration_comparison"
+    assert result["reconstructed_results"] == "results/WRB-001-reconstructed"
+    assert result["canonical_results"] == "canonical"
+    assert not Path(result["reconstructed_results"]).is_absolute()
+    assert not Path(result["canonical_results"]).is_absolute()
     assert set(result["workloads"]) == set(WORKLOAD_IDS)
     assert result["classification"]["reconstructed"] in {
         "ROBUST", "CONDITIONAL", "NOT_ROBUST", "NOT ROBUST"

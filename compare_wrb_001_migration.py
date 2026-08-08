@@ -13,6 +13,19 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent
 
 
+def _portable_result_reference(path: Path) -> str:
+    """Return a stable repository-relative reference without machine-local prefixes."""
+
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(ROOT.resolve()).as_posix()
+    except ValueError:
+        # Callers may compare temporary or external result directories in tests or
+        # exploratory use. A portable leaf label is preferable to leaking a local
+        # absolute path into the generated research artifact.
+        return resolved.name
+
+
 def _difference(old: float | None, new: float | None) -> dict[str, float | None]:
     if old is None or new is None:
         return {"absolute": None, "relative": None}
@@ -74,8 +87,8 @@ def compare(reconstructed_dir: Path, canonical_dir: Path) -> dict[str, Any]:
     ]
     result = {
         "artifact_type": "wrb_001_migration_comparison",
-        "reconstructed_results": str(reconstructed_dir.as_posix()),
-        "canonical_results": str(canonical_dir.as_posix()),
+        "reconstructed_results": _portable_result_reference(reconstructed_dir),
+        "canonical_results": _portable_result_reference(canonical_dir),
         "workloads": workloads,
         "r_benign_distributions": {
             "reconstructed": old["benign_shaped_ratio_vs_constant_reference"],

@@ -120,10 +120,11 @@
       "python": "3.13.0"
     }
   },
-  "git_commit": "636ad4be54147651592565f1f7e16b47282153ac",
+  "git_commit": "916e6b295865277ba9f72fc17c80dae781987ba7",
   "numpy_version": "2.3.5",
   "pipeline": {
-    "command": "C:\\Users\\erena\\AppData\\Local\\Programs\\Python\\Python313\\python.exe run_all_v044.py",
+    "command": "python run_all_v044.py",
+    "interpreter_executable_name": "python.exe",
     "returncode": 0
   },
   "platform": "Windows-11-10.0.26200-SP0",
