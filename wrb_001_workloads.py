@@ -1,10 +1,9 @@
 """Deterministic workload generators for the WRB-001 paired campaign.
 
-The public v0.4.4 artefacts describe a 30 kW diversified stochastic load,
-a 40 kW compute design limit, and a two-level phase-shaped comparator.  They
-do not contain the released Python sources.  Consequently W1 and W5 below
-are faithful *reconstructions of those documented semantics*, not claims of
-source-code identity.  This limitation is recorded in each realization.
+W1 and W5 call the manifested, canonical v0.4.4 historical generators
+directly.  W2-W4 remain WRB-001 validation workloads.  Compatibility logic
+adds explicit, order-independent RNG streams and paired-energy normalization
+without modifying the historical generator implementations.
 
 Every power sample is a left-endpoint, zero-order-hold value for the half-open
 interval ``[time_s[i], time_s[i] + 1 s)``.  The measurement mask must identify
@@ -14,7 +13,7 @@ targets are returned explicitly as ``INVALID_ENERGY_MATCH``.
 
 No module/global random state is used.  Family functions require an explicit
 ``numpy.random.Generator``.  :func:`generate_workloads` creates one stable,
-SHA-256-derived PCG64DXSM stream per workload so results do not depend on the
+SHA-256-derived PCG64 stream per workload so results do not depend on the
 order in which workload families are evaluated.
 """
 
@@ -29,9 +28,11 @@ from typing import Any, Mapping, Sequence
 
 import numpy as np
 
+from src.octm.baselines.v044 import thermal_model as canonical_v044
+
 
 CAMPAIGN_ID = "WRB-001"
-MODEL_WORKLOAD_VERSION = "WRB-001-workloads-v1"
+MODEL_WORKLOAD_VERSION = "WRB-001-workloads-v2-canonical-v044"
 CANONICAL_DT_S = 1.0
 POWER_MIN_W = 0.0
 POWER_MAX_W = 40_000.0
@@ -73,12 +74,6 @@ class WorkloadConfig:
     power_max_W: float = POWER_MAX_W
     energy_tolerance_fraction: float = 1.0e-3
 
-    # W1: reconstructed v0.4.4 diversified stochastic semantics.
-    diversified_mean_power_W: float = 30_000.0
-    diversified_cycle_amplitude_W: float = 4_000.0
-    diversified_cycle_period_s: float = 1_800.0
-    diversified_sigma_W: float = 700.0
-
     # W2: stochastic shot-noise bursts.
     bursty_idle_power_W: float = 8_000.0
     bursty_arrival_rate_per_s: float = 0.045
@@ -105,21 +100,6 @@ class WorkloadConfig:
             raise ValueError("WRB-001 compute-power bounds are frozen at 0..40000 W")
         if not (0.0 < self.energy_tolerance_fraction <= 1.0e-3):
             raise ValueError("energy_tolerance_fraction must be in (0, 0.001]")
-        if not (self.power_min_W <= self.diversified_mean_power_W <= self.power_max_W):
-            raise ValueError("diversified_mean_power_W is outside compute-power bounds")
-        if self.diversified_cycle_amplitude_W < 0.0:
-            raise ValueError("diversified_cycle_amplitude_W must be non-negative")
-        if self.diversified_cycle_period_s <= 0.0:
-            raise ValueError("diversified_cycle_period_s must be positive")
-        if self.diversified_sigma_W < 0.0:
-            raise ValueError("diversified_sigma_W must be non-negative")
-        if (
-            self.diversified_mean_power_W - self.diversified_cycle_amplitude_W
-            < self.power_min_W
-            or self.diversified_mean_power_W + self.diversified_cycle_amplitude_W
-            > self.power_max_W
-        ):
-            raise ValueError("diversified deterministic cycle is outside power bounds")
         if self.bursty_idle_power_W < self.power_min_W:
             raise ValueError("bursty_idle_power_W is below the compute-power bound")
         if self.bursty_arrival_rate_per_s <= 0.0 or self.bursty_mean_duration_s <= 0.0:
@@ -243,12 +223,15 @@ def make_workload_rng(
         campaign_seed=seed_i,
         workload_id=workload_id,
         stream_name=stream_name,
-        rng_algorithm="numpy.PCG64DXSM",
+        rng_algorithm="numpy.PCG64 (default_rng)",
         derivation="SHA-256 first 128 bits over canonical JSON (v1)",
         derivation_path=path,
         rng_seed=rng_seed,
     )
-    return np.random.Generator(np.random.PCG64DXSM(rng_seed)), lineage
+    # PCG64 is the bit-generator selected by the canonical source's
+    # np.random.default_rng(seed) calls.  Constructing it explicitly preserves
+    # that historical RNG family while retaining WRB's auditable child seeds.
+    return np.random.default_rng(rng_seed), lineage
 
 
 def _validate_grid_and_mask(
@@ -523,41 +506,19 @@ def generate_diversified_stochastic(
     rng: np.random.Generator,
     config: WorkloadConfig,
 ) -> tuple[np.ndarray, Mapping[str, Any]]:
-    """W1: reconstructed slow diversified cycle plus stochastic demand.
-
-    The embedded v0.4.4 Figure 1 is direct release evidence for an approximately
-    30 kW trace with a regular 30-minute, roughly +/-4 kW component and smaller
-    sample-scale variation.  Those visible semantics are encoded explicitly;
-    the absent historical source still prevents a byte-identity claim.
-    """
+    """W1: canonical v0.4.4 ``load_nominal`` with an explicit WRB RNG."""
 
     _require_generator(rng)
-    conditional_mean = (
-        config.diversified_mean_power_W
-        - config.diversified_cycle_amplitude_W
-        * np.sin(2.0 * np.pi * time_s / config.diversified_cycle_period_s)
-    )
-    power, rejected = _bounded_normal(
-        rng,
-        mean=conditional_mean,
-        sigma=config.diversified_sigma_W,
-        size=int(time_s.size),
-        lower=config.power_min_W,
-        upper=config.power_max_W,
-    )
+    power = np.asarray(canonical_v044.load_nominal(time_s, canonical_v044.P, rng), dtype=np.float64)
     return power, {
-        "generator": "reconstructed_diversified_cycle_plus_noise_v1",
-        "historical_status": (
-            "reconstructed_from_v0.4.4_published_artifacts; release source code absent"
+        "generator": "canonical_v0.4.4.load_nominal",
+        "historical_status": "canonical_manifested_source",
+        "canonical_source_sha256": (
+            "aec89d61be31c21a269dafcdb318dba4c72cf10037760dff489530f3f3591309"
         ),
-        "documented_mean_power_W": config.diversified_mean_power_W,
-        "figure_reconstructed_cycle_amplitude_W": (
-            config.diversified_cycle_amplitude_W
-        ),
-        "figure_reconstructed_cycle_period_s": config.diversified_cycle_period_s,
-        "reconstruction_sigma_W": config.diversified_sigma_W,
-        "bound_enforcement": "rejection sampling (no clipping)",
-        "rejected_draw_count": rejected,
+        "rng_injection": "explicit numpy.random.Generator passed to canonical function",
+        "hidden_or_global_rng_used": False,
+        "canonical_bound_enforcement": "numpy.clip in frozen historical generator",
     }
 
 
@@ -761,42 +722,38 @@ def generate_phase_shaped_candidate(
     rng: np.random.Generator,
     config: WorkloadConfig,
 ) -> tuple[np.ndarray, Mapping[str, Any]]:
-    """W5: documented hot-indicator two-level adversarial candidate."""
+    """W5: canonical v0.4.4 ``load_phase_locked`` with explicit WRB RNG.
+
+    The supplied hot mask is a provenance assertion.  It must exactly equal the
+    canonical historical phase indicator; the frozen generator computes that
+    indicator internally.
+    """
 
     _require_generator(rng)
     hot = _validate_signal(hot_mask, name="hot_mask", shape=time_s.shape, boolean=True)
+    canonical_hot = np.asarray(
+        canonical_v044.in_hot_phase(time_s, canonical_v044.P), dtype=bool
+    )
+    if not np.array_equal(hot, canonical_hot):
+        raise ValueError("hot_mask differs from canonical v0.4.4 in_hot_phase semantics")
+    power = np.asarray(
+        canonical_v044.load_phase_locked(time_s, canonical_v044.P, rng),
+        dtype=np.float64,
+    )
     measured_hot = int(np.count_nonzero(hot & measurement_mask))
     measured_n = int(np.count_nonzero(measurement_mask))
-    measured_cold = measured_n - measured_hot
-    target_mean_W = target_energy_J / (measured_n * CANONICAL_DT_S)
-
-    if measured_hot == 0 or measured_cold == 0:
-        high_W = target_mean_W
-        low_W = target_mean_W
-        degeneracy = "measurement interval contains only one phase"
-    else:
-        hot_fraction = measured_hot / measured_n
-        high_W = config.power_max_W
-        low_W = (target_mean_W - hot_fraction * high_W) / (1.0 - hot_fraction)
-        if low_W < config.power_min_W:
-            low_W = config.power_min_W
-            high_W = (
-                target_mean_W - (1.0 - hot_fraction) * config.power_min_W
-            ) / hot_fraction
-        degeneracy = None
-
-    power = np.where(hot, high_W, low_W).astype(np.float64, copy=False)
     return power, {
-        "generator": "reconstructed_hot_indicator_two_level_v1",
+        "generator": "canonical_v0.4.4.load_phase_locked",
         "classification": "adversarial candidate; not a validated attack",
-        "historical_status": (
-            "reconstructed_from_v0.4.4_published_artifacts; release source code absent"
+        "historical_status": "canonical_manifested_source",
+        "canonical_source_sha256": (
+            "aec89d61be31c21a269dafcdb318dba4c72cf10037760dff489530f3f3591309"
         ),
-        "hot_power_W": float(high_W),
-        "cold_power_W": float(low_W),
+        "rng_injection": "explicit numpy.random.Generator passed to canonical function",
+        "hidden_or_global_rng_used": False,
+        "canonical_depth": 1.0,
         "measurement_hot_fraction": float(measured_hot / measured_n),
-        "degeneracy": degeneracy,
-        "rng_draw_count": 0,
+        "paired_energy_normalization": "WRB bounded additive water fill after canonical generation",
     }
 
 

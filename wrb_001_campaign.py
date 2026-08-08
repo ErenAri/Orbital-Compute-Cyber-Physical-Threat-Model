@@ -18,8 +18,10 @@ import sys
 
 import numpy as np
 
-from thermal_model import (
+from src.octm.adapters.v044 import (
+    CANONICAL_SOURCE_SHA256,
     DEFAULT_PARAMETERS,
+    canonical_source_hashes,
     measurement_step_mask,
     orbital_environment,
     simulate_thermal,
@@ -515,7 +517,9 @@ def build_summary(
         ),
     )
     source_files = [
-        "thermal_model.py",
+        "src/octm/adapters/v044.py",
+        "src/octm/baselines/v044/thermal_model.py",
+        "src/octm/baselines/v044/run_all_v044.py",
         "wrb_001_workloads.py",
         "wrb_001_statistics.py",
         "wrb_001_campaign.py",
@@ -578,9 +582,13 @@ def build_summary(
             "deterministic_fixed_forcing": deterministic_fixed_forcing_regression(),
         },
         "provenance": {
-            "implementation_status": "reconstructed_from_v0.4.4_release_artifacts",
-            "historical_source_available": False,
-            "historical_stochastic_generator_identity": "not established",
+            "implementation_status": "canonical_v0.4.4_source_via_compatibility_adapter",
+            "historical_source_available": True,
+            "canonical_baseline_module": "src.octm.baselines.v044.thermal_model",
+            "adapter_module": "src.octm.adapters.v044",
+            "canonical_source_sha256": canonical_source_hashes(),
+            "expected_canonical_source_sha256": dict(CANONICAL_SOURCE_SHA256),
+            "historical_stochastic_generator_identity": "canonical load_nominal/load_phase_locked",
             "physical_randomness_applied": False,
             "source_sha256": source_hashes,
             "python": platform.python_version(),

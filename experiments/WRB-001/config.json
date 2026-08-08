@@ -1,8 +1,8 @@
 {
   "schema_version": "wrb-001.1",
   "campaign_id": "WRB-001",
-  "model_version": "TSM-01-v0.4.4-reconstructed",
-  "scientific_scope": "workload-timing sensitivity characterization under reconstructed TSM-01 assumptions; not attack validation",
+  "model_version": "TSM-01-v0.4.4-canonical",
+  "scientific_scope": "workload-timing sensitivity characterization using the canonical v0.4.4 TSM-01 baseline; not attack validation",
   "dt_s": 1.0,
   "warmup_orbits": 2,
   "measurement_orbits": 6,
