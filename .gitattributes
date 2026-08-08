@@ -1,0 +1,13 @@
+# Preserve canonical v0.4.4 release bytes across checkout platforms.
+/Orbital_Compute_Threat_Model_v0_4_4.docx -text
+/QA_REPORT_v0.4.4.md -text
+/RELEASE_NOTES_v0.4.4.md -text
+/results_v044.json -text
+/src/octm/baselines/v044/MANIFEST.sha256 -text
+/src/octm/baselines/v044/README.md -text
+/src/octm/baselines/v044/a11y_v0.4.4.json -text
+/src/octm/baselines/v044/plot_results.py -text
+/src/octm/baselines/v044/requirements.txt -text
+/src/octm/baselines/v044/run_all_v044.py -text
+/src/octm/baselines/v044/thermal_model.py -text
+/src/octm/baselines/v044/*.png binary

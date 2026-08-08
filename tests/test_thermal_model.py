@@ -46,9 +46,23 @@ def test_canonical_source_hashes_and_import_path() -> None:
 def test_canonical_authoritative_pipeline_reproduces_scientific_result() -> None:
     result = verify()
     assert result["status"] == "PASS"
-    assert result["numerical_comparison"]["scientific_semantic_equal"] is True
-    assert result["numerical_comparison"]["max_absolute_numeric_difference"] == 0.0
-    assert result["manifest_coverage"]["available_entries_all_match"] is True
+    science = result["scientific_numerical_reproduction"]
+    assert science["status"] == "PASS"
+    assert science["comparison"]["scientific_semantic_equal"] is True
+    assert science["comparison"]["numeric_value_count"] == 364
+    assert science["comparison"]["matched_numeric_value_count"] == 364
+    assert science["comparison"]["max_absolute_numeric_difference"] == 0.0
+
+    release = result["byte_level_release_artifact_verification"]
+    assert release["status"] == "PASS"
+    assert release["manifest_entry_count"] == 15
+    assert release["available_entry_count"] == 15
+    assert release["missing_entry_count"] == 0
+    assert release["all_entries_present"] is True
+    assert release["all_entries_match"] is True
+
+    environment = result["environment_differences"]
+    assert environment["excluded_from_scientific_equality"] is True
 
 
 def test_fixed_forcing_reproduces_published_v044_convergence_row() -> None:

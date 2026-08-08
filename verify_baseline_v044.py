@@ -55,12 +55,19 @@ def manifest_coverage() -> dict[str, Any]:
                 "path": str(path.relative_to(ROOT).as_posix()),
             }
     available = [entry for entry in entries.values() if entry["status"] != "MISSING"]
+    all_entries_present = len(available) == len(entries)
+    all_entries_match = all_entries_present and all(
+        entry["status"] == "PASS" for entry in entries.values()
+    )
     return {
+        "status": "PASS" if all_entries_match else "FAIL",
         "manifest_entry_count": len(entries),
         "available_entry_count": len(available),
         "missing_entry_count": len(missing),
+        "all_entries_present": all_entries_present,
+        "all_entries_match": all_entries_match,
         "available_entries_all_match": all(entry["status"] == "PASS" for entry in available),
-        "missing_non_numerical_release_entries": missing,
+        "missing_entries": missing,
         "entries": entries,
     }
 
@@ -94,6 +101,7 @@ def _numeric_comparison(left: Any, right: Any) -> dict[str, Any]:
     walk(left, right, "")
     return {
         "numeric_value_count": len(differences),
+        "matched_numeric_value_count": sum(difference == 0.0 for difference in differences),
         "max_absolute_numeric_difference": max(differences, default=0.0),
         "mismatch_count": len(mismatched_paths),
         "mismatched_paths": mismatched_paths[:100],
@@ -135,34 +143,52 @@ def verify() -> dict[str, Any]:
     authoritative_environment = authoritative_science.pop("environment", None)
     comparison = _numeric_comparison(generated_science, authoritative_science)
     science_equal = generated_science == authoritative_science
-    passed = science_equal and coverage["available_entries_all_match"]
+    scientific_reproduction = {
+        "status": "PASS" if science_equal else "FAIL",
+        "comparison": {
+            **comparison,
+            "scientific_semantic_equal": science_equal,
+            "declared_tolerance": 0.0,
+        },
+        "result_sha256": {
+            "authoritative": sha256(AUTHORITATIVE_RESULT),
+            "regenerated": generated_hash,
+            "byte_identical_including_environment_metadata": (
+                generated_hash == sha256(AUTHORITATIVE_RESULT)
+            ),
+            "difference_scope": (
+                "none"
+                if generated_hash == sha256(AUTHORITATIVE_RESULT)
+                else "environment metadata only"
+            ),
+        },
+    }
+    release_artifact_verification = {
+        "status": coverage["status"],
+        "verification_basis": "src/octm/baselines/v044/MANIFEST.sha256",
+        "manifest_sha256": sha256(BASELINE_DIRECTORY / "MANIFEST.sha256"),
+        **coverage,
+    }
+    environment_differences = {
+        "authoritative": authoritative_environment,
+        "regenerated": generated_environment,
+        "environments_differ": authoritative_environment != generated_environment,
+        "excluded_from_scientific_equality": True,
+        "reason": "release platform metadata is not a scientific result",
+    }
+    passed = science_equal and coverage["all_entries_match"]
     result = {
         "artifact_type": "baseline_v044_verification",
         "baseline_version": "0.4.4",
         "status": "PASS" if passed else "FAIL",
         "verification_rule": (
-            "all scientific fields must be exactly equal; environment metadata may differ "
-            "and is reported separately"
+            "all scientific fields must be exactly equal and every MANIFEST.sha256 entry "
+            "must be present and byte-identical; environment metadata is reported separately"
         ),
         "source_sha256": source_hashes,
-        "manifest_coverage": coverage,
-        "result_sha256": {
-            "authoritative": sha256(AUTHORITATIVE_RESULT),
-            "regenerated": generated_hash,
-            "byte_identical": generated_hash == sha256(AUTHORITATIVE_RESULT),
-        },
-        "numerical_comparison": {
-            **comparison,
-            "scientific_semantic_equal": science_equal,
-            "declared_tolerance": 0.0,
-        },
-        "environment_metadata": {
-            "authoritative": authoritative_environment,
-            "regenerated": generated_environment,
-            "difference_expected_across_release_platforms": (
-                authoritative_environment != generated_environment
-            ),
-        },
+        "scientific_numerical_reproduction": scientific_reproduction,
+        "byte_level_release_artifact_verification": release_artifact_verification,
+        "environment_differences": environment_differences,
         "pipeline": {
             "command": f"{sys.executable} run_all_v044.py",
             "returncode": completed.returncode,
