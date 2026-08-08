@@ -1,0 +1,58 @@
+{
+  "artifact_type": "rsim_001_hard_gates",
+  "baseline": {
+    "canonical_source_sha256": {
+      "README.md": "d0a27752c1ec5f86e054469267af43e552145131de5144d06780e3cc59fe1675",
+      "plot_results.py": "a2eb39aaa71da326b5c02196d58ba84f7d3865520ffabaf417d3672d6ba6dbf7",
+      "requirements.txt": "f63cc3a968d2d6507e81cf710f8b20cb59a2445d6b4ab63c3d955ed6e39d193c",
+      "run_all_v044.py": "78107b40e6dc155903c0d86d09c1af4027210cbda889debbb44c92154da99fec",
+      "thermal_model.py": "aec89d61be31c21a269dafcdb318dba4c72cf10037760dff489530f3f3591309"
+    },
+    "manifest_entries_passed": 15,
+    "manifest_entry_count": 15,
+    "manifest_status": "PASS",
+    "max_scientific_difference": 0.0,
+    "scientific_status": "PASS",
+    "scientific_values_matched": 364,
+    "scientific_values_total": 364
+  },
+  "e0_mode_a_wrb_regression": {
+    "max_delta_peak_temperature_error_K": 0.0,
+    "max_peak_node_temperature_error_K": 0.0,
+    "max_peak_radiator_temperature_error_K": 0.0,
+    "run_count": 60,
+    "seed_count": 10,
+    "status": "PASS",
+    "tolerance_K": 1e-10
+  },
+  "status": "PASS",
+  "thermal_bridge": {
+    "artifact_type": "rsim_001_thermal_bridge_benchmark",
+    "environment": {
+      "numba": "0.65.1",
+      "numpy": "2.3.5",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.13.0"
+    },
+    "equivalence_status": "PASS",
+    "equivalence_tolerance_K": 1e-10,
+    "intervals_per_trial": 10000,
+    "jit_warmup_s": 0.009792800061404705,
+    "max_node_temperature_error_K": 0.0,
+    "max_radiator_temperature_error_K": 0.0,
+    "median_10000_interval_time_s": 0.05714769987389445,
+    "performance_limit_s": 600.0,
+    "performance_status": "PASS",
+    "projected_closed_loop_intervals": 5184000,
+    "projected_closed_loop_kernel_time_s": 29.62536761462688,
+    "repeats": 5,
+    "status": "PASS",
+    "timings_s": [
+      0.05806489987298846,
+      0.05717429984360933,
+      0.05714769987389445,
+      0.05659459996968508,
+      0.05713959992863238
+    ]
+  }
+}

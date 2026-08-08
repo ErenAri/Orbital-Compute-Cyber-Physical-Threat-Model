@@ -1,0 +1,29 @@
+{
+  "artifact_type": "rsim_001_thermal_bridge_benchmark",
+  "environment": {
+    "numba": "0.65.1",
+    "numpy": "2.3.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.0"
+  },
+  "equivalence_status": "PASS",
+  "equivalence_tolerance_K": 1e-10,
+  "intervals_per_trial": 10000,
+  "jit_warmup_s": 0.009792800061404705,
+  "max_node_temperature_error_K": 0.0,
+  "max_radiator_temperature_error_K": 0.0,
+  "median_10000_interval_time_s": 0.05714769987389445,
+  "performance_limit_s": 600.0,
+  "performance_status": "PASS",
+  "projected_closed_loop_intervals": 5184000,
+  "projected_closed_loop_kernel_time_s": 29.62536761462688,
+  "repeats": 5,
+  "status": "PASS",
+  "timings_s": [
+    0.05806489987298846,
+    0.05717429984360933,
+    0.05714769987389445,
+    0.05659459996968508,
+    0.05713959992863238
+  ]
+}
