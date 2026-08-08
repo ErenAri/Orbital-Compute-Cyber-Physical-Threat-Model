@@ -1,0 +1,37 @@
+{
+  "status": "reconstructed_from_release_artifacts",
+  "warning": "The original v0.4.4 Python source and MANIFEST.sha256 were not supplied. Exact historical stochastic generator identity cannot be established.",
+  "frozen_local_artifacts_sha256": {
+    "Orbital_Compute_Threat_Model_v0_4_4.docx": "1e55e20c9c291d25f89ff9176e5155babeb3985fded1a0b1d6ec05e22992fe29",
+    "QA_REPORT_v0.4.4.md": "34c3312386afc8098efe79d5fb472fbf5515f50478f2418795d9b1be2c5da866",
+    "RELEASE_NOTES_v0.4.4.md": "71121909da87eaaaa3e8fee6cf0b7098ac45c9665b93b6d0d3f83ebf71951e9a",
+    "results_v044.json": "51ee15fc35b2494123b9bb10141ce2eeacbc54d2f1a0c4170920abaa66430686"
+  },
+  "thermal_parameters": {
+    "radiator_effective_area_m2": 100.0,
+    "radiator_emissivity": 0.85,
+    "node_thermal_capacitance_J_K": 360000.0,
+    "radiator_thermal_capacitance_J_K": 225000.0,
+    "loop_conductance_W_K": 3000.0,
+    "compute_design_power_W": 40000.0,
+    "diversified_average_power_W": 30000.0,
+    "housekeeping_power_W": 2000.0,
+    "throttle_threshold_K": 348.15,
+    "model_hazard_threshold_K": 363.15,
+    "orbit_period_s": 5400.0,
+    "hot_fraction": 0.62,
+    "hot_environmental_flux_W_m2": 150.0,
+    "cold_environmental_flux_W_m2": 40.0,
+    "deep_space_sink_K": 3.0,
+    "initial_node_temperature_K": 320.0,
+    "initial_radiator_temperature_K": 305.0,
+    "integration": "Forward Euler, left-endpoint forcing",
+    "release_dt_s": 1.0
+  },
+  "published_fixed_forcing_regression": {
+    "dt_s": 1.0,
+    "nominal_peak_C": 50.986481,
+    "phase_shaped_peak_C": 68.439837,
+    "peak_delta_K": 17.453355
+  }
+}

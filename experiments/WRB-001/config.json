@@ -1,0 +1,33 @@
+{
+  "schema_version": "wrb-001.1",
+  "campaign_id": "WRB-001",
+  "model_version": "TSM-01-v0.4.4-reconstructed",
+  "scientific_scope": "workload-timing sensitivity characterization under reconstructed TSM-01 assumptions; not attack validation",
+  "dt_s": 1.0,
+  "warmup_orbits": 2,
+  "measurement_orbits": 6,
+  "seeds_file": "experiments/WRB-001/seeds.txt",
+  "energy_relative_tolerance": 0.001,
+  "preferred_energy_relative_tolerance": 0.0001,
+  "bootstrap": {
+    "method": "paired_seed_percentile_median",
+    "confidence": 0.95,
+    "resamples": 10000,
+    "seed": 17012026
+  },
+  "ratio": {
+    "numerator_workload_id": "power_aware_benign",
+    "denominator_workload_id": "phase_shaped_candidate",
+    "near_zero_denominator_K": 0.01
+  },
+  "classification": {
+    "material_delta_K": 1.0,
+    "robust_min_benign_families": 2,
+    "status": "exploratory preregistered campaign rule; not a hardware safety threshold"
+  },
+  "outputs": {
+    "runs_csv": "results/WRB-001/runs.csv",
+    "runs_jsonl": "results/WRB-001/runs.jsonl",
+    "summary_json": "results/WRB-001/summary.json"
+  }
+}

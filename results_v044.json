@@ -1,0 +1,695 @@
+{
+  "version": "0.4.4",
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41"
+  },
+  "method_notes": {
+    "model_status": "project-generated parametric model; not a digital twin",
+    "project_scales": "P0-P2 and E0-E4 are project-defined, not SPARTA/NASA/NIST scales",
+    "uncertainty_status": "illustrative project assumptions, not measured operational error distributions"
+  },
+  "baseline": {
+    "nominal": {
+      "peak_C": 52.80572459990003,
+      "mean_C": 44.37581528456542,
+      "hit_throttle": false,
+      "hit_model_hazard": false,
+      "orbit_avg_kW": 29.950041247606247
+    },
+    "phase_locked": {
+      "peak_C": 68.26665155503474,
+      "mean_C": 42.90958408874894,
+      "hit_throttle": false,
+      "hit_model_hazard": false,
+      "orbit_avg_kW": 29.949973889017674
+    },
+    "peak_delta_K": 15.4609,
+    "orbit_avg_energy_delta_pct": -0.0002
+  },
+  "sensitivity_cases": [
+    {
+      "case": "A=80 m2, eps=0.75",
+      "consumed_K": 16.79,
+      "nominal_peak_C": 75.58,
+      "attack_peak_C": 92.37,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "joint",
+      "parameter_group": "radiator"
+    },
+    {
+      "case": "A=100 m2, eps=0.85",
+      "consumed_K": 15.46,
+      "nominal_peak_C": 52.81,
+      "attack_peak_C": 68.27,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "baseline_reference",
+      "parameter_group": "radiator"
+    },
+    {
+      "case": "A=130 m2, eps=0.85",
+      "consumed_K": 14.16,
+      "nominal_peak_C": 39.82,
+      "attack_peak_C": 53.99,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "radiator"
+    },
+    {
+      "case": "C_node x0.5",
+      "consumed_K": 15.76,
+      "nominal_peak_C": 54.26,
+      "attack_peak_C": 70.03,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "capacitance"
+    },
+    {
+      "case": "C_node x2",
+      "consumed_K": 12.75,
+      "nominal_peak_C": 50.61,
+      "attack_peak_C": 63.36,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "capacitance"
+    },
+    {
+      "case": "UA=1500 W/K",
+      "consumed_K": 17.82,
+      "nominal_peak_C": 63.47,
+      "attack_peak_C": 81.29,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "conductance"
+    },
+    {
+      "case": "UA=6000 W/K",
+      "consumed_K": 14.23,
+      "nominal_peak_C": 47.44,
+      "attack_peak_C": 61.67,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "conductance"
+    },
+    {
+      "case": "orbit 60 min",
+      "consumed_K": 13.26,
+      "nominal_peak_C": 51.43,
+      "attack_peak_C": 64.68,
+      "orbit_avg_energy_delta_pct": 0.0,
+      "case_type": "single_factor",
+      "parameter_group": "orbit_period"
+    },
+    {
+      "case": "orbit 120 min",
+      "consumed_K": 16.48,
+      "nominal_peak_C": 53.27,
+      "attack_peak_C": 69.75,
+      "orbit_avg_energy_delta_pct": -0.0,
+      "case_type": "single_factor",
+      "parameter_group": "orbit_period"
+    },
+    {
+      "case": "P_design=36 kW",
+      "consumed_K": 8.65,
+      "nominal_peak_C": 52.81,
+      "attack_peak_C": 61.45,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "power"
+    },
+    {
+      "case": "P_design=45 kW",
+      "consumed_K": 23.68,
+      "nominal_peak_C": 52.81,
+      "attack_peak_C": 76.48,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "power"
+    },
+    {
+      "case": "P_avg=34 kW",
+      "consumed_K": 8.03,
+      "nominal_peak_C": 61.03,
+      "attack_peak_C": 69.06,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "power"
+    }
+  ],
+  "margin_sweep": [
+    {
+      "case": "A=80 m2, eps=0.75",
+      "consumed_K": 16.79,
+      "nominal_peak_C": 75.58,
+      "attack_peak_C": 92.37,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "joint",
+      "parameter_group": "radiator"
+    },
+    {
+      "case": "A=100 m2, eps=0.85",
+      "consumed_K": 15.46,
+      "nominal_peak_C": 52.81,
+      "attack_peak_C": 68.27,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "baseline_reference",
+      "parameter_group": "radiator"
+    },
+    {
+      "case": "A=130 m2, eps=0.85",
+      "consumed_K": 14.16,
+      "nominal_peak_C": 39.82,
+      "attack_peak_C": 53.99,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "radiator"
+    },
+    {
+      "case": "C_node x0.5",
+      "consumed_K": 15.76,
+      "nominal_peak_C": 54.26,
+      "attack_peak_C": 70.03,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "capacitance"
+    },
+    {
+      "case": "C_node x2",
+      "consumed_K": 12.75,
+      "nominal_peak_C": 50.61,
+      "attack_peak_C": 63.36,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "capacitance"
+    },
+    {
+      "case": "UA=1500 W/K",
+      "consumed_K": 17.82,
+      "nominal_peak_C": 63.47,
+      "attack_peak_C": 81.29,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "conductance"
+    },
+    {
+      "case": "UA=6000 W/K",
+      "consumed_K": 14.23,
+      "nominal_peak_C": 47.44,
+      "attack_peak_C": 61.67,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "conductance"
+    },
+    {
+      "case": "orbit 60 min",
+      "consumed_K": 13.26,
+      "nominal_peak_C": 51.43,
+      "attack_peak_C": 64.68,
+      "orbit_avg_energy_delta_pct": 0.0,
+      "case_type": "single_factor",
+      "parameter_group": "orbit_period"
+    },
+    {
+      "case": "orbit 120 min",
+      "consumed_K": 16.48,
+      "nominal_peak_C": 53.27,
+      "attack_peak_C": 69.75,
+      "orbit_avg_energy_delta_pct": -0.0,
+      "case_type": "single_factor",
+      "parameter_group": "orbit_period"
+    },
+    {
+      "case": "P_design=36 kW",
+      "consumed_K": 8.65,
+      "nominal_peak_C": 52.81,
+      "attack_peak_C": 61.45,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "power"
+    },
+    {
+      "case": "P_design=45 kW",
+      "consumed_K": 23.68,
+      "nominal_peak_C": 52.81,
+      "attack_peak_C": 76.48,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "power"
+    },
+    {
+      "case": "P_avg=34 kW",
+      "consumed_K": 8.03,
+      "nominal_peak_C": 61.03,
+      "attack_peak_C": 69.06,
+      "orbit_avg_energy_delta_pct": -0.0002,
+      "case_type": "single_factor",
+      "parameter_group": "power"
+    }
+  ],
+  "sensitivity_summary": {
+    "n_entries": 12,
+    "case_counts": {
+      "single_factor": 10,
+      "joint": 1,
+      "baseline_reference": 1
+    },
+    "observed_range_K": {
+      "min": 8.03,
+      "max": 23.68,
+      "span": 15.65
+    },
+    "parameter_group_spans_K": {
+      "radiator": {
+        "min_K": 14.16,
+        "max_K": 16.79,
+        "span_K": 2.63
+      },
+      "capacitance": {
+        "min_K": 12.75,
+        "max_K": 15.76,
+        "span_K": 3.01
+      },
+      "conductance": {
+        "min_K": 14.23,
+        "max_K": 17.82,
+        "span_K": 3.59
+      },
+      "orbit_period": {
+        "min_K": 13.26,
+        "max_K": 16.48,
+        "span_K": 3.22
+      },
+      "power": {
+        "min_K": 8.03,
+        "max_K": 23.68,
+        "span_K": 15.65
+      }
+    },
+    "range_driver": "the observed minimum and maximum are both power-related cases (P_avg=34 kW and P_design=45 kW)",
+    "interpretation": "ten single-factor cases plus one joint radiator-area/emissivity case and one baseline reference; group spans are local tested slices, not global uncertainty bounds"
+  },
+  "margin_observed_range_K": {
+    "min": 8.03,
+    "max": 23.68,
+    "n_entries": 12,
+    "scope": "observed range across 12 sensitivity entries (10 single-factor + 1 joint + 1 baseline reference); not a bound on plausible systems"
+  },
+  "synthetic_peak_matched": {
+    "radiator emissivity": {
+      "parameter": "eps_scale",
+      "scale": 0.82373,
+      "peak_C": 68.2667,
+      "mean_C": 59.6274,
+      "trajectory_rmse_K": 22.299
+    },
+    "loop / pump": {
+      "parameter": "ua_scale",
+      "scale": 0.40793,
+      "peak_C": 68.2667,
+      "mean_C": 59.8607,
+      "trajectory_rmse_K": 22.836
+    },
+    "environmental flux": {
+      "parameter": "q_scale",
+      "scale": 1.66366,
+      "peak_C": 68.2667,
+      "mean_C": 56.3194,
+      "trajectory_rmse_K": 17.869
+    }
+  },
+  "peak_match_max_error_K": 5e-05,
+  "candidate_metric_matrix": [
+    {
+      "case": "nominal",
+      "energy_residual_W": -11.2,
+      "apparent_conductance_ratio": 1.0,
+      "phase_rho": 0.034,
+      "A_material_shift_project_threshold": false,
+      "C_material_shift_project_threshold": false
+    },
+    {
+      "case": "induced phase-locked load",
+      "energy_residual_W": -11.3,
+      "apparent_conductance_ratio": 1.001,
+      "phase_rho": 1.0,
+      "A_material_shift_project_threshold": false,
+      "C_material_shift_project_threshold": false
+    },
+    {
+      "case": "radiator emissivity",
+      "energy_residual_W": 9152.6,
+      "apparent_conductance_ratio": 1.0,
+      "phase_rho": 0.034,
+      "A_material_shift_project_threshold": true,
+      "C_material_shift_project_threshold": false
+    },
+    {
+      "case": "loop / pump",
+      "energy_residual_W": -11.2,
+      "apparent_conductance_ratio": 0.408,
+      "phase_rho": 0.034,
+      "A_material_shift_project_threshold": false,
+      "C_material_shift_project_threshold": true
+    },
+    {
+      "case": "environmental flux",
+      "energy_residual_W": 7169.4,
+      "apparent_conductance_ratio": 1.0,
+      "phase_rho": 0.034,
+      "A_material_shift_project_threshold": true,
+      "C_material_shift_project_threshold": false
+    }
+  ],
+  "screening_thresholds_project_selected": {
+    "energy_residual_W": 200.0,
+    "conductance_ratio_delta": 0.05,
+    "status": "screening aids only; not calibrated detector thresholds"
+  },
+  "telemetry_bias_variant": {
+    "radiator emissivity": {
+      "reported_power_fraction": 0.694,
+      "under_report_pct": 30.6,
+      "target_residual_W": 9152.6
+    },
+    "loop / pump": {
+      "reported_power_fraction": 1.0,
+      "under_report_pct": 0.0,
+      "target_residual_W": -11.2
+    },
+    "environmental flux": {
+      "reported_power_fraction": 0.7602,
+      "under_report_pct": 23.98,
+      "target_residual_W": 7169.4
+    }
+  },
+  "illustrative_uncertainty": {
+    "n": 400,
+    "sigma_radiative_coefficient": 0.07,
+    "sigma_power_calibration": 0.03,
+    "sigma_environment_model": 0.15,
+    "sensor_noise_sigma_K": 0.3,
+    "distributions": "Gaussian standard deviations; illustrative project assumptions",
+    "pairs": {
+      "radiator emissivity": {
+        "standardised_mean_difference_pooled_sd": 2.393,
+        "empirical_auc_fault_gt_induced": 0.955,
+        "tpr_at_5pct_induced_false_positive": 0.77,
+        "threshold_W_for_5pct_fpr": 6284.9
+      },
+      "loop / pump": {
+        "standardised_mean_difference_pooled_sd": 0.0,
+        "empirical_auc_fault_gt_induced": 0.5,
+        "tpr_at_5pct_induced_false_positive": 0.052,
+        "threshold_W_for_5pct_fpr": 6284.9
+      },
+      "environmental flux": {
+        "standardised_mean_difference_pooled_sd": 1.909,
+        "empirical_auc_fault_gt_induced": 0.911,
+        "tpr_at_5pct_induced_false_positive": 0.603,
+        "threshold_W_for_5pct_fpr": 6284.9
+      }
+    }
+  },
+  "radiative_calibration_sensitivity": {
+    "7": {
+      "standardised_mean_difference_pooled_sd": 2.393,
+      "auc": 0.955,
+      "tpr_at_5pct_fpr": 0.77,
+      "nominal_sd_W": 3547.6,
+      "induced_sd_W": 3544.4,
+      "fault_sd_W": 4125.2,
+      "threshold_W_for_5pct_fpr": 6284.9
+    },
+    "5": {
+      "standardised_mean_difference_pooled_sd": 3.038,
+      "auc": 0.985,
+      "tpr_at_5pct_fpr": 0.915,
+      "nominal_sd_W": 2836.4,
+      "induced_sd_W": 2834.5,
+      "fault_sd_W": 3206.0,
+      "threshold_W_for_5pct_fpr": 4940.7
+    },
+    "3": {
+      "standardised_mean_difference_pooled_sd": 3.926,
+      "auc": 0.997,
+      "tpr_at_5pct_fpr": 0.993,
+      "nominal_sd_W": 2254.0,
+      "induced_sd_W": 2253.3,
+      "fault_sd_W": 2420.9,
+      "threshold_W_for_5pct_fpr": 3928.5
+    },
+    "2": {
+      "standardised_mean_difference_pooled_sd": 4.397,
+      "auc": 0.999,
+      "tpr_at_5pct_fpr": 0.998,
+      "nominal_sd_W": 2046.7,
+      "induced_sd_W": 2046.4,
+      "fault_sd_W": 2126.6,
+      "threshold_W_for_5pct_fpr": 3518.4
+    },
+    "1": {
+      "standardised_mean_difference_pooled_sd": 4.749,
+      "auc": 0.999,
+      "tpr_at_5pct_fpr": 1.0,
+      "nominal_sd_W": 1921.2,
+      "induced_sd_W": 1921.3,
+      "fault_sd_W": 1940.3,
+      "threshold_W_for_5pct_fpr": 3215.8
+    },
+    "0.5": {
+      "standardised_mean_difference_pooled_sd": 4.833,
+      "auc": 1.0,
+      "tpr_at_5pct_fpr": 1.0,
+      "nominal_sd_W": 1894.7,
+      "induced_sd_W": 1894.9,
+      "fault_sd_W": 1898.2,
+      "threshold_W_for_5pct_fpr": 2928.9
+    }
+  },
+  "temporal_feature": {
+    "depth_sweep": [
+      {
+        "depth": 0.0,
+        "rho": 0.034,
+        "peak_C": 52.81,
+        "avg_kW": 29.95
+      },
+      {
+        "depth": 0.1,
+        "rho": 0.488,
+        "peak_C": 54.41,
+        "avg_kW": 29.95
+      },
+      {
+        "depth": 0.25,
+        "rho": 0.849,
+        "peak_C": 56.8,
+        "avg_kW": 29.95
+      },
+      {
+        "depth": 0.5,
+        "rho": 0.978,
+        "peak_C": 60.72,
+        "avg_kW": 29.95
+      },
+      {
+        "depth": 0.75,
+        "rho": 0.997,
+        "peak_C": 64.54,
+        "avg_kW": 29.95
+      },
+      {
+        "depth": 1.0,
+        "rho": 1.0,
+        "peak_C": 68.27,
+        "avg_kW": 29.95
+      }
+    ],
+    "benign_power_aware": {
+      "rho": 0.918,
+      "peak_C": 65.79,
+      "avg_kW": 29.95,
+      "peak_excursion_vs_diversified_K": 12.981,
+      "fraction_of_full_phase_excursion_pct": 84.0
+    },
+    "full_phase_excursion_vs_diversified_K": 15.461,
+    "nearest_attack_by_rho": {
+      "depth": 0.5,
+      "rho": 0.978,
+      "peak_C": 60.72,
+      "avg_kW": 29.95
+    },
+    "highest_partial_depth_peak_C": 64.54,
+    "conclusion": "phase correlation alone orders shaping but does not establish malicious intent; the thermal timing mechanism is not intrinsically adversarial",
+    "security_interpretation": "the non-malicious synthetic power-aware schedule reproduces most of the full phase-shaped thermal excursion, so adversarial timing is one possible exploitation of an underlying resource-safety coupling",
+    "residual_circularity": "attack construction and statistic share the hot-phase indicator; benign generator is independent"
+  },
+  "protection_reference_case": {
+    "parameters": {
+      "A_rad_m2": 80.0,
+      "eps": 0.75,
+      "T_throttle_C": 75.0,
+      "T_model_hazard_C": 90.0,
+      "shed_fraction": 0.3,
+      "hysteresis_K": 5.0,
+      "additional_sensor_delay_s": 0.0,
+      "actuator_transition": "idealised immediate after stated control latency",
+      "temperature_sensor": "trusted/unbiased in this experiment"
+    },
+    "unprotected_nominal_peak_C": 75.58,
+    "unprotected_phase_locked_peak_C": 92.37,
+    "orbit_avg_energy_delta_pct": -0.0002,
+    "excursion_windows_s": [
+      1413.0,
+      1410.0,
+      1414.0,
+      1414.0,
+      1413.0,
+      1415.0
+    ],
+    "window_min_s": 1410.0,
+    "window_mean_s": 1413.2,
+    "window_median_s": 1413.5,
+    "window_max_s": 1415.0,
+    "local_60s_rise_rate_K_per_min": 1.074,
+    "full_15K_rise_rate_using_mean_window_K_per_min": 0.637,
+    "latency_sweep": {
+      "10": {
+        "peak_C": 75.21,
+        "model_hazard_reached": false
+      },
+      "300": {
+        "peak_C": 79.9,
+        "model_hazard_reached": false
+      },
+      "900": {
+        "peak_C": 86.56,
+        "model_hazard_reached": false
+      },
+      "1400": {
+        "peak_C": 89.95,
+        "model_hazard_reached": false
+      },
+      "1500": {
+        "peak_C": 90.46,
+        "model_hazard_reached": true
+      },
+      "2400": {
+        "peak_C": 92.37,
+        "model_hazard_reached": true
+      }
+    },
+    "scope": "reference-model protection behaviour only; thresholds are not generic hardware limits"
+  },
+  "release_step_realisation_sensitivity": [
+    {
+      "dt_s": 0.25,
+      "peak_delta_K": 15.4864,
+      "nominal_peak_C": 52.7761,
+      "phase_locked_peak_C": 68.2626
+    },
+    {
+      "dt_s": 0.5,
+      "peak_delta_K": 15.4946,
+      "nominal_peak_C": 52.7694,
+      "phase_locked_peak_C": 68.264
+    },
+    {
+      "dt_s": 1.0,
+      "peak_delta_K": 15.4609,
+      "nominal_peak_C": 52.8057,
+      "phase_locked_peak_C": 68.2667
+    },
+    {
+      "dt_s": 2.0,
+      "peak_delta_K": 15.4968,
+      "nominal_peak_C": 52.7756,
+      "phase_locked_peak_C": 68.2723
+    },
+    {
+      "dt_s": 5.0,
+      "peak_delta_K": 15.432,
+      "nominal_peak_C": 52.8792,
+      "phase_locked_peak_C": 68.3113
+    },
+    {
+      "dt_s": 10.0,
+      "peak_delta_K": 15.3033,
+      "nominal_peak_C": 52.9994,
+      "phase_locked_peak_C": 68.3027
+    }
+  ],
+  "deterministic_integration_convergence": {
+    "reference_dt_s": 0.0625,
+    "reference_peak_delta_K": 17.4515947,
+    "forcing": "deterministic flat P_avg vs deterministic two-level phase-shaped load with exact analytical orbit-average P_avg; no workload noise",
+    "rows": [
+      {
+        "dt_s": 0.125,
+        "peak_delta_K": 17.451714,
+        "abs_error_vs_ref_K": 0.000119,
+        "estimated_order_vs_finer": null,
+        "nominal_peak_C": 50.985267,
+        "phase_locked_peak_C": 68.436981,
+        "avg_power_difference_kW": 0.0
+      },
+      {
+        "dt_s": 0.25,
+        "peak_delta_K": 17.451951,
+        "abs_error_vs_ref_K": 0.0003558,
+        "estimated_order_vs_finer": 1.581,
+        "nominal_peak_C": 50.985438,
+        "phase_locked_peak_C": 68.437389,
+        "avg_power_difference_kW": 0.0
+      },
+      {
+        "dt_s": 0.5,
+        "peak_delta_K": 17.45242,
+        "abs_error_vs_ref_K": 0.0008249,
+        "estimated_order_vs_finer": 1.213,
+        "nominal_peak_C": 50.985785,
+        "phase_locked_peak_C": 68.438205,
+        "avg_power_difference_kW": 0.0
+      },
+      {
+        "dt_s": 1.0,
+        "peak_delta_K": 17.453355,
+        "abs_error_vs_ref_K": 0.0017607,
+        "estimated_order_vs_finer": 1.094,
+        "nominal_peak_C": 50.986481,
+        "phase_locked_peak_C": 68.439837,
+        "avg_power_difference_kW": 0.0
+      },
+      {
+        "dt_s": 2.0,
+        "peak_delta_K": 17.455217,
+        "abs_error_vs_ref_K": 0.0036221,
+        "estimated_order_vs_finer": 1.041,
+        "nominal_peak_C": 50.987884,
+        "phase_locked_peak_C": 68.443101,
+        "avg_power_difference_kW": 0.0
+      },
+      {
+        "dt_s": 4.0,
+        "peak_delta_K": 17.458296,
+        "abs_error_vs_ref_K": 0.0067011,
+        "estimated_order_vs_finer": 0.888,
+        "nominal_peak_C": 50.991331,
+        "phase_locked_peak_C": 68.449627,
+        "avg_power_difference_kW": 0.0
+      },
+      {
+        "dt_s": 8.0,
+        "peak_delta_K": 17.472559,
+        "abs_error_vs_ref_K": 0.0209647,
+        "estimated_order_vs_finer": 1.645,
+        "nominal_peak_C": 51.001683,
+        "phase_locked_peak_C": 68.474243,
+        "avg_power_difference_kW": 0.019493177
+      }
+    ],
+    "interpretation": "errors decrease toward the 0.0625 s reference; the 0.5-2 s region is approximately first-order, consistent with Forward Euler for this fixed forcing experiment"
+  }
+}

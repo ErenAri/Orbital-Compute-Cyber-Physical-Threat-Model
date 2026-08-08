@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kernelguard.example/schemas/wrb_001.schema.json",
+  "title": "OCTM WRB-001 artifacts",
+  "description": "Schema for one JSONL run record or the WRB-001 summary artifact.",
+  "oneOf": [
+    { "$ref": "#/$defs/runRecord" },
+    { "$ref": "#/$defs/summary" }
+  ],
+  "$defs": {
+    "nullableNumber": {
+      "type": ["number", "null"]
+    },
+    "descriptiveStatistics": {
+      "type": "object",
+      "required": ["n", "mean", "median", "std", "min", "max", "p05", "p25", "p75", "p95"],
+      "properties": {
+        "n": { "type": "integer", "minimum": 0 },
+        "mean": { "$ref": "#/$defs/nullableNumber" },
+        "median": { "$ref": "#/$defs/nullableNumber" },
+        "std": { "$ref": "#/$defs/nullableNumber" },
+        "min": { "$ref": "#/$defs/nullableNumber" },
+        "max": { "$ref": "#/$defs/nullableNumber" },
+        "p05": { "$ref": "#/$defs/nullableNumber" },
+        "p25": { "$ref": "#/$defs/nullableNumber" },
+        "p75": { "$ref": "#/$defs/nullableNumber" },
+        "p95": { "$ref": "#/$defs/nullableNumber" },
+        "bootstrap_95_ci": {
+          "type": "object",
+          "required": ["low", "high", "confidence", "method", "resamples", "bootstrap_seed"],
+          "properties": {
+            "low": { "$ref": "#/$defs/nullableNumber" },
+            "high": { "$ref": "#/$defs/nullableNumber" },
+            "confidence": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1 },
+            "method": { "const": "paired_seed_percentile_median" },
+            "resamples": { "type": "integer", "minimum": 1 },
+            "bootstrap_seed": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "runRecord": {
+      "type": "object",
+      "required": [
+        "record_type", "schema_version", "campaign_id", "model_version", "git_commit",
+        "seed", "run_seed", "workload_id", "workload_label", "workload_category", "dt_s",
+        "evaluation_start_s", "evaluation_end_s_exclusive", "evaluation_sample_count",
+        "mean_compute_power_W", "cumulative_compute_energy_J", "reference_compute_energy_J",
+        "relative_energy_error", "peak_compute_power_W", "power_variance_W2",
+        "peak_node_temperature_K", "peak_radiator_temperature_K",
+        "delta_peak_temperature_vs_reference_K", "delta_peak_temperature_vs_diversified_K",
+        "time_above_throttle_threshold_s", "time_above_model_hazard_threshold_s",
+        "peak_node_radiator_gradient_K", "hot_phase_energy_fraction", "phase_correlation",
+        "phase_correlation_status", "r_benign", "r_benign_status",
+        "r_benign_vs_diversified", "r_benign_vs_diversified_status", "workload_rng_seed",
+        "workload_rng_stream", "workload_trace_sha256", "physical_realization_sha256",
+        "physical_randomness_applied", "allowed_inputs", "diagnostics", "valid_run", "invalid_reason"
+      ],
+      "properties": {
+        "record_type": { "const": "run" },
+        "schema_version": { "const": "wrb-001.1" },
+        "campaign_id": { "const": "WRB-001" },
+        "model_version": { "type": "string" },
+        "git_commit": { "type": ["string", "null"] },
+        "seed": { "type": "integer", "minimum": 0 },
+        "run_seed": { "type": "integer", "minimum": 0 },
+        "workload_id": {
+          "enum": ["constant_reference", "diversified_stochastic", "bursty_benign", "queue_driven_benign", "power_aware_benign", "phase_shaped_candidate"]
+        },
+        "workload_label": { "type": "string" },
+        "workload_category": { "enum": ["reference", "benign", "adversarial_candidate"] },
+        "dt_s": { "const": 1.0 },
+        "evaluation_start_s": { "type": "number", "minimum": 0 },
+        "evaluation_end_s_exclusive": { "type": "number", "exclusiveMinimum": 0 },
+        "evaluation_sample_count": { "type": "integer", "minimum": 1 },
+        "mean_compute_power_W": { "$ref": "#/$defs/nullableNumber" },
+        "cumulative_compute_energy_J": { "$ref": "#/$defs/nullableNumber" },
+        "reference_compute_energy_J": { "$ref": "#/$defs/nullableNumber" },
+        "relative_energy_error": { "$ref": "#/$defs/nullableNumber" },
+        "peak_compute_power_W": { "$ref": "#/$defs/nullableNumber" },
+        "power_variance_W2": { "$ref": "#/$defs/nullableNumber" },
+        "peak_node_temperature_K": { "$ref": "#/$defs/nullableNumber" },
+        "peak_radiator_temperature_K": { "$ref": "#/$defs/nullableNumber" },
+        "delta_peak_temperature_vs_reference_K": { "$ref": "#/$defs/nullableNumber" },
+        "delta_peak_temperature_vs_diversified_K": { "$ref": "#/$defs/nullableNumber" },
+        "time_above_throttle_threshold_s": { "$ref": "#/$defs/nullableNumber" },
+        "time_above_model_hazard_threshold_s": { "$ref": "#/$defs/nullableNumber" },
+        "peak_node_radiator_gradient_K": { "$ref": "#/$defs/nullableNumber" },
+        "hot_phase_energy_fraction": { "$ref": "#/$defs/nullableNumber" },
+        "phase_correlation": { "$ref": "#/$defs/nullableNumber" },
+        "phase_correlation_status": { "type": "string" },
+        "r_benign": { "$ref": "#/$defs/nullableNumber" },
+        "r_benign_status": { "type": "string" },
+        "r_benign_vs_diversified": { "$ref": "#/$defs/nullableNumber" },
+        "r_benign_vs_diversified_status": { "type": "string" },
+        "workload_rng_seed": { "type": ["integer", "null"], "minimum": 0 },
+        "workload_rng_stream": { "type": ["string", "null"] },
+        "workload_trace_sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+        "physical_realization_sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+        "physical_randomness_applied": { "const": false },
+        "allowed_inputs": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "diagnostics": { "type": "object" },
+        "valid_run": { "type": "boolean" },
+        "invalid_reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "artifact_type", "schema_version", "campaign_id", "model_version", "scientific_scope",
+        "attack_validation", "git_commit", "seeds", "n_paired_seeds", "run_count",
+        "valid_run_count", "invalid_run_count", "workload_order", "workload_summaries",
+        "benign_shaped_ratio_vs_constant_reference", "benign_shaped_ratio_vs_diversified",
+        "classification", "protocol", "baseline_regression", "provenance"
+      ],
+      "properties": {
+        "artifact_type": { "const": "summary" },
+        "schema_version": { "const": "wrb-001.1" },
+        "campaign_id": { "const": "WRB-001" },
+        "model_version": { "type": "string" },
+        "scientific_scope": { "type": "string" },
+        "attack_validation": { "const": false },
+        "git_commit": { "type": ["string", "null"] },
+        "seeds": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "uniqueItems": true },
+        "n_paired_seeds": { "type": "integer", "minimum": 1 },
+        "run_count": { "type": "integer", "minimum": 6 },
+        "valid_run_count": { "type": "integer", "minimum": 0 },
+        "invalid_run_count": { "type": "integer", "minimum": 0 },
+        "workload_order": { "type": "array", "minItems": 6, "maxItems": 6, "uniqueItems": true },
+        "workload_summaries": { "type": "object", "minProperties": 6 },
+        "benign_shaped_ratio_vs_constant_reference": { "type": "object" },
+        "benign_shaped_ratio_vs_diversified": { "type": "object" },
+        "classification": {
+          "type": "object",
+          "required": ["label", "scope", "attack_validation"],
+          "properties": {
+            "label": { "enum": ["ROBUST", "CONDITIONAL", "NOT ROBUST"] },
+            "scope": { "type": "string" },
+            "attack_validation": { "const": false }
+          },
+          "additionalProperties": true
+        },
+        "protocol": { "type": "object" },
+        "baseline_regression": { "type": "object" },
+        "provenance": { "type": "object" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
