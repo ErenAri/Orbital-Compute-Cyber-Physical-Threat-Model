@@ -1,6 +1,6 @@
 {
   "artifact_type": "wrb_001_migration_comparison",
-  "canonical_results": "C:/Users/erena/Desktop/Orbital Compute Cyber-Physical Threat Model/results/WRB-001",
+  "canonical_results": "results/WRB-001",
   "classification": {
     "canonical": "ROBUST",
     "changed": false,
@@ -119,7 +119,7 @@
       }
     }
   },
-  "reconstructed_results": "C:/Users/erena/Desktop/Orbital Compute Cyber-Physical Threat Model/results/WRB-001-reconstructed",
+  "reconstructed_results": "results/WRB-001-reconstructed",
   "workloads": {
     "bursty_benign": {
       "canonical_median_delta_T_K": 8.063461868993926,

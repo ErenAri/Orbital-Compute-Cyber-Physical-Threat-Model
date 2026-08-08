@@ -190,7 +190,8 @@ def verify() -> dict[str, Any]:
         "byte_level_release_artifact_verification": release_artifact_verification,
         "environment_differences": environment_differences,
         "pipeline": {
-            "command": f"{sys.executable} run_all_v044.py",
+            "command": "python run_all_v044.py",
+            "interpreter_executable_name": Path(sys.executable).name,
             "returncode": completed.returncode,
         },
         "python_version": platform.python_version(),
