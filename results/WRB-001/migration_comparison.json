@@ -1,0 +1,341 @@
+{
+  "artifact_type": "wrb_001_migration_comparison",
+  "canonical_results": "C:/Users/erena/Desktop/Orbital Compute Cyber-Physical Threat Model/results/WRB-001",
+  "classification": {
+    "canonical": "ROBUST",
+    "changed": false,
+    "reconstructed": "ROBUST"
+  },
+  "energy_match_statistics": {
+    "canonical_all_finite": true,
+    "canonical_max_absolute_relative_error": 0.0,
+    "reconstructed_max_absolute_relative_error": 0.0
+  },
+  "r_benign_distributions": {
+    "canonical": {
+      "definition": "delta_peak(power_aware_benign vs W0) / delta_peak(phase_shaped_candidate vs W0)",
+      "statistics": {
+        "bootstrap_95_ci": {
+          "bootstrap_seed": 17013026,
+          "confidence": 0.95,
+          "high": 0.6007936595256829,
+          "low": 0.6005757695179228,
+          "method": "paired_seed_percentile_median",
+          "resamples": 10000
+        },
+        "max": 0.6019461026376967,
+        "mean": 0.6006493439211903,
+        "median": 0.6007157395599287,
+        "min": 0.5993712683442124,
+        "n": 100,
+        "p05": 0.5998157875456832,
+        "p25": 0.6002307134150524,
+        "p75": 0.6009770759613536,
+        "p95": 0.6015540259115928,
+        "std": 0.0005304856914888135
+      },
+      "status_counts": {
+        "VALID": 100
+      }
+    },
+    "reconstructed": {
+      "definition": "delta_peak(power_aware_benign vs W0) / delta_peak(phase_shaped_candidate vs W0)",
+      "statistics": {
+        "bootstrap_95_ci": {
+          "bootstrap_seed": 17013026,
+          "confidence": 0.95,
+          "high": 0.5978930391718918,
+          "low": 0.5977319188324883,
+          "method": "paired_seed_percentile_median",
+          "resamples": 10000
+        },
+        "max": 0.5990540897449633,
+        "mean": 0.5978016885756416,
+        "median": 0.5978510771599348,
+        "min": 0.596336638127853,
+        "n": 100,
+        "p05": 0.5968215512640906,
+        "p25": 0.5974432145572273,
+        "p75": 0.5981337442454538,
+        "p95": 0.5986721114700388,
+        "std": 0.0005599445281932867
+      },
+      "status_counts": {
+        "VALID": 100
+      }
+    },
+    "versus_diversified_canonical": {
+      "definition": "delta_peak(power_aware_benign vs W1) / delta_peak(phase_shaped_candidate vs W1)",
+      "historical_context": "v0.4.4 reported one reconstructed-comparator result near 0.84; this campaign reports a distribution",
+      "statistics": {
+        "bootstrap_95_ci": {
+          "bootstrap_seed": 17013027,
+          "confidence": 0.95,
+          "high": 0.5520314633719582,
+          "low": 0.5513399573432933,
+          "method": "paired_seed_percentile_median",
+          "resamples": 10000
+        },
+        "max": 0.5534773312072054,
+        "mean": 0.5516930977056067,
+        "median": 0.5517091565728003,
+        "min": 0.5492658531460035,
+        "n": 100,
+        "p05": 0.5501378603960212,
+        "p25": 0.5508961555439067,
+        "p75": 0.5525341092487922,
+        "p95": 0.5531210839796037,
+        "std": 0.0009537775445579299
+      },
+      "status_counts": {
+        "VALID": 100
+      }
+    },
+    "versus_diversified_reconstructed": {
+      "definition": "delta_peak(power_aware_benign vs W1) / delta_peak(phase_shaped_candidate vs W1)",
+      "historical_context": "v0.4.4 reported one reconstructed-comparator result near 0.84; this campaign reports a distribution",
+      "statistics": {
+        "bootstrap_95_ci": {
+          "bootstrap_seed": 17013027,
+          "confidence": 0.95,
+          "high": 0.5496278750923496,
+          "low": 0.5492885874979592,
+          "method": "paired_seed_percentile_median",
+          "resamples": 10000
+        },
+        "max": 0.5512472693884672,
+        "mean": 0.5493653949706342,
+        "median": 0.5494095606983387,
+        "min": 0.5469275528255091,
+        "n": 100,
+        "p05": 0.548016437689268,
+        "p25": 0.5488141918935265,
+        "p75": 0.5499146302494486,
+        "p95": 0.5507500681301983,
+        "std": 0.0008385129025841971
+      },
+      "status_counts": {
+        "VALID": 100
+      }
+    }
+  },
+  "reconstructed_results": "C:/Users/erena/Desktop/Orbital Compute Cyber-Physical Threat Model/results/WRB-001-reconstructed",
+  "workloads": {
+    "bursty_benign": {
+      "canonical_median_delta_T_K": 8.063461868993926,
+      "counts": {
+        "canonical_invalid": 0,
+        "canonical_valid": 100,
+        "reconstructed_invalid": 0,
+        "reconstructed_valid": 100
+      },
+      "delta_T_difference": {
+        "absolute": 0.14484060670534404,
+        "relative": 0.01829113956935014
+      },
+      "delta_T_distribution_K": {
+        "canonical": {
+          "p05": 5.381497397353797,
+          "p95": 10.306498810871346
+        },
+        "reconstructed": {
+          "p05": 5.364102927608528,
+          "p95": 11.365030207777716
+        }
+      },
+      "peak_temperature_distribution_K": {
+        "canonical": {
+          "median": 332.1048650036155,
+          "p05": 329.4135253768537,
+          "p95": 334.3639204006692
+        },
+        "reconstructed": {
+          "median": 332.05883477539,
+          "p05": 329.5177113076866,
+          "p95": 335.5001109435592
+        }
+      },
+      "reconstructed_median_delta_T_K": 7.918621262288582
+    },
+    "constant_reference": {
+      "canonical_median_delta_T_K": 0.0,
+      "counts": {
+        "canonical_invalid": 0,
+        "canonical_valid": 100,
+        "reconstructed_invalid": 0,
+        "reconstructed_valid": 100
+      },
+      "delta_T_difference": {
+        "absolute": 0.0,
+        "relative": null
+      },
+      "delta_T_distribution_K": {
+        "canonical": {
+          "p05": 0.0,
+          "p95": 0.0
+        },
+        "reconstructed": {
+          "p05": 0.0,
+          "p95": 0.0
+        }
+      },
+      "peak_temperature_distribution_K": {
+        "canonical": {
+          "median": 324.04395618018987,
+          "p05": 324.02798638161204,
+          "p95": 324.0622551921965
+        },
+        "reconstructed": {
+          "median": 324.1356630435058,
+          "p05": 324.12425341694745,
+          "p95": 324.14982265679583
+        }
+      },
+      "reconstructed_median_delta_T_K": 0.0
+    },
+    "diversified_stochastic": {
+      "canonical_median_delta_T_K": 1.8915105543553068,
+      "counts": {
+        "canonical_invalid": 0,
+        "canonical_valid": 100,
+        "reconstructed_invalid": 0,
+        "reconstructed_valid": 100
+      },
+      "delta_T_difference": {
+        "absolute": 0.016143516475693787,
+        "relative": 0.00860819037000164
+      },
+      "delta_T_distribution_K": {
+        "canonical": {
+          "p05": 1.847019905328881,
+          "p95": 1.9472905319900946
+        },
+        "reconstructed": {
+          "p05": 1.853074757201196,
+          "p95": 1.9082430485642732
+        }
+      },
+      "peak_temperature_distribution_K": {
+        "canonical": {
+          "median": 325.9372535870577,
+          "p05": 325.88845671535665,
+          "p95": 325.99852297200295
+        },
+        "reconstructed": {
+          "median": 326.01207405427897,
+          "p05": 325.981815675297,
+          "p95": 326.0435086521586
+        }
+      },
+      "reconstructed_median_delta_T_K": 1.875367037879613
+    },
+    "phase_shaped_candidate": {
+      "canonical_median_delta_T_K": 17.37708817306526,
+      "counts": {
+        "canonical_invalid": 0,
+        "canonical_valid": 100,
+        "reconstructed_invalid": 0,
+        "reconstructed_valid": 100
+      },
+      "delta_T_difference": {
+        "absolute": -0.07699431563344206,
+        "relative": -0.004411249670860379
+      },
+      "delta_T_distribution_K": {
+        "canonical": {
+          "p05": 17.369641849087706,
+          "p95": 17.385568625328496
+        },
+        "reconstructed": {
+          "p05": 17.441502454495918,
+          "p95": 17.464218940948633
+        }
+      },
+      "peak_temperature_distribution_K": {
+        "canonical": {
+          "median": 341.4214556802278,
+          "p05": 341.40766406792596,
+          "p95": 341.4337488972325
+        },
+        "reconstructed": {
+          "median": 341.5897455322045,
+          "p05": 341.5884723578961,
+          "p95": 341.5913251112917
+        }
+      },
+      "reconstructed_median_delta_T_K": 17.454082488698702
+    },
+    "power_aware_benign": {
+      "canonical_median_delta_T_K": 10.438904104028154,
+      "counts": {
+        "canonical_invalid": 0,
+        "canonical_valid": 100,
+        "reconstructed_invalid": 0,
+        "reconstructed_valid": 100
+      },
+      "delta_T_difference": {
+        "absolute": 0.006178078630568962,
+        "relative": 0.000592182581573498
+      },
+      "delta_T_distribution_K": {
+        "canonical": {
+          "p05": 10.424030552911404,
+          "p95": 10.450515703815778
+        },
+        "reconstructed": {
+          "p05": 10.420366858353143,
+          "p95": 10.449714583481182
+        }
+      },
+      "peak_temperature_distribution_K": {
+        "canonical": {
+          "median": 334.4810372070477,
+          "p05": 334.4559098887607,
+          "p95": 334.50581489281
+        },
+        "reconstructed": {
+          "median": 334.5716327880144,
+          "p05": 334.5495584186932,
+          "p95": 334.58899154036175
+        }
+      },
+      "reconstructed_median_delta_T_K": 10.432726025397585
+    },
+    "queue_driven_benign": {
+      "canonical_median_delta_T_K": 8.183989559811721,
+      "counts": {
+        "canonical_invalid": 0,
+        "canonical_valid": 100,
+        "reconstructed_invalid": 0,
+        "reconstructed_valid": 100
+      },
+      "delta_T_difference": {
+        "absolute": -0.17653892743805955,
+        "relative": -0.02111576172574379
+      },
+      "delta_T_distribution_K": {
+        "canonical": {
+          "p05": 6.035262525383746,
+          "p95": 11.832036828453417
+        },
+        "reconstructed": {
+          "p05": 5.599432870991424,
+          "p95": 12.487250429058568
+        }
+      },
+      "peak_temperature_distribution_K": {
+        "canonical": {
+          "median": 332.2255123163013,
+          "p05": 330.0795862561452,
+          "p95": 335.88551012620445
+        },
+        "reconstructed": {
+          "median": 332.49976767813195,
+          "p05": 329.7396280268288,
+          "p95": 336.6366489220604
+        }
+      },
+      "reconstructed_median_delta_T_K": 8.36052848724978
+    }
+  }
+}
