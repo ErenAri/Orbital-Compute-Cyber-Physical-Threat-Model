@@ -131,6 +131,7 @@ def generate_environment(
     time_s: np.ndarray,
     *,
     e1: E1Parameters = DEFAULT_E1,
+    phase_offset_fraction: float = 0.0,
 ) -> EnvironmentTrace:
     """Generate frozen E0 or E1 left-endpoint interval inputs."""
 
@@ -139,8 +140,13 @@ def generate_environment(
         raise ValueError("time_s must be a non-empty finite one-dimensional array")
     if environment_id not in ENVIRONMENT_IDS:
         raise ValueError(f"unknown environment_id: {environment_id}")
+    if not math.isfinite(phase_offset_fraction):
+        raise ValueError("environment phase offset must be finite")
+    normalized_phase_offset = float(phase_offset_fraction % 1.0)
 
     if environment_id == E0_CANONICAL:
+        if normalized_phase_offset != 0.0:
+            raise ValueError("environment phase offset is defined for E1 only")
         p = canonical.P
         hot = np.asarray(canonical.in_hot_phase(time, p), dtype=bool)
         illumination = hot.copy()
@@ -160,7 +166,13 @@ def generate_environment(
     else:
         e1.validate()
         period = e1.period_s
-        phase = 2.0 * math.pi * np.mod(time, period) / period
+        if normalized_phase_offset == 0.0:
+            # Preserve the historical offset-zero floating-point path exactly.
+            phase = 2.0 * math.pi * np.mod(time, period) / period
+        else:
+            phase = 2.0 * math.pi * np.mod(
+                time / period + normalized_phase_offset, 1.0
+            )
         c = math.cos(e1.beta_rad) * np.cos(phase)
         d_perp = e1.orbit_radius_m * np.sqrt(np.maximum(0.0, 1.0 - c * c))
         eclipse = (c < 0.0) & (d_perp <= e1.earth_radius_m)
@@ -201,6 +213,8 @@ def generate_environment(
             "eclipse_fraction": e1.eclipse_fraction,
             "eclipse_duration_s": e1.eclipse_duration_s,
             "sunlit_fraction": e1.sunlit_fraction,
+            "environment_phase_offset_fraction": normalized_phase_offset,
+            "environment_phase_offset_deg": normalized_phase_offset * 360.0,
             "albedo_treatment": "bounded analytic approximation",
             "radiator_and_solar_array_orientation_are_distinct": True,
         }

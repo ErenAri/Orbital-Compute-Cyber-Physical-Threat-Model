@@ -1,0 +1,57 @@
+{
+  "architecture_id": "A0-R_RESERVE_AWARE_ESSENTIAL_LOAD_ADMISSION",
+  "campaign_id": "RSIM-001-EPOCH1",
+  "changed_independent_variable": "relative E1 environment phase offset",
+  "environment": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+  "environment_phase_offset_fraction": [
+    0.0,
+    0.125,
+    0.25,
+    0.375,
+    0.5,
+    0.625,
+    0.75,
+    0.875
+  ],
+  "environment_phase_offset_deg": [
+    0.0,
+    45.0,
+    90.0,
+    135.0,
+    180.0,
+    225.0,
+    270.0,
+    315.0
+  ],
+  "hardware_unchanged_from_PWR1": true,
+  "measurement_window_s": [
+    10800,
+    43200
+  ],
+  "modes": [
+    "POWER_CONSTRAINED",
+    "CLOSED_LOOP"
+  ],
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "simulation_horizon_s": 43200,
+  "workloads": [
+    "constant_reference",
+    "diversified_stochastic",
+    "bursty_benign",
+    "queue_driven_benign",
+    "power_aware_benign",
+    "phase_shaped_candidate"
+  ]
+}
