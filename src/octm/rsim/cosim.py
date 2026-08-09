@@ -12,6 +12,13 @@ from src.octm.baselines.v044 import thermal_model as canonical
 from .environment import EnvironmentTrace
 from .fdir import FDIRParameters, FDIRState, fdir_decision
 from .power import DEFAULT_POWER_PARAMETERS, PowerParameters, step_power_system
+from .reserve import (
+    ESSENTIAL_RESERVE_FEASIBLE,
+    ReserveProfile,
+    build_reserve_profile,
+    require_feasible_reserve,
+    step_reserve_aware_power_system,
+)
 from .thermal_bridge import one_step, run_trace, thermal_residual_J
 
 
@@ -46,6 +53,12 @@ class CoSimulationResult:
     valid_run: bool
     invalid_reason: str | None
     invariant_results: dict[str, bool]
+    reserve_profile: ReserveProfile | None = None
+    reserve_active: np.ndarray | None = None
+    reserve_limited_compute: np.ndarray | None = None
+    reserve_denied_compute_W: np.ndarray | None = None
+    instantaneous_denied_compute_W: np.ndarray | None = None
+    fdir_denied_compute_W: np.ndarray | None = None
 
 
 def trace_sha256(values: np.ndarray) -> str:
@@ -87,6 +100,7 @@ def simulate(
     fdir_params: FDIRParameters = FDIRParameters(),
     power_params: PowerParameters = DEFAULT_POWER_PARAMETERS,
     warmup_stop_index: int = 10_800,
+    reserve_time_until_next_generation_s: np.ndarray | None = None,
 ) -> CoSimulationResult:
     """Run one mode using canonical left-endpoint/Forward-Euler order."""
 
@@ -105,6 +119,15 @@ def simulate(
     fdir_params.validate()
     n = requested.size
     design = power_params.compute_design_power_W
+    reserve_profile: ReserveProfile | None = None
+    if reserve_time_until_next_generation_s is not None:
+        if mode == THERMAL_ONLY:
+            raise ValueError("reserve-aware admission is not applicable to THERMAL_ONLY")
+        lookahead = np.asarray(reserve_time_until_next_generation_s, dtype=np.float64)
+        if lookahead.shape != requested.shape:
+            raise ValueError("reserve look-ahead must match the requested workload")
+        reserve_profile = build_reserve_profile(lookahead, params=power_params)
+        require_feasible_reserve(reserve_profile)
 
     if mode == THERMAL_ONLY:
         thermal = run_trace(requested, flux, dt_s=dt_s)
@@ -159,6 +182,11 @@ def simulate(
     curtail = np.empty(n, dtype=np.float64)
     unserved = np.empty(n, dtype=np.float64)
     residual = np.empty(n, dtype=np.float64)
+    reserve_active = np.zeros(n, dtype=bool) if reserve_profile is not None else None
+    reserve_limited = np.zeros(n, dtype=bool) if reserve_profile is not None else None
+    reserve_denied = np.zeros(n, dtype=np.float64) if reserve_profile is not None else None
+    instantaneous_denied = np.zeros(n, dtype=np.float64) if reserve_profile is not None else None
+    fdir_denied = np.zeros(n, dtype=np.float64) if reserve_profile is not None else None
     shedding_trace = np.zeros(n, dtype=bool)
     soc = np.empty(n + 1, dtype=np.float64)
     energy = power_params.initial_energy_J
@@ -188,11 +216,32 @@ def simulate(
         recovery_count += int(decision.recovered)
         shedding_trace[i] = state.shedding
         fdir_limit[i] = min(design, decision.power_limit_W)
-        step = step_power_system(
-            battery_energy_J=energy, solar_generation_W=solar[i],
-            requested_compute_W=requested[i], fdir_limit_W=decision.power_limit_W,
-            dt_s=dt_s, params=power_params,
-        )
+        if reserve_profile is None:
+            step = step_power_system(
+                battery_energy_J=energy, solar_generation_W=solar[i],
+                requested_compute_W=requested[i], fdir_limit_W=decision.power_limit_W,
+                dt_s=dt_s, params=power_params,
+            )
+        else:
+            reserve_step = step_reserve_aware_power_system(
+                battery_energy_J=energy, solar_generation_W=solar[i],
+                requested_compute_W=requested[i], fdir_limit_W=decision.power_limit_W,
+                time_until_next_generation_s=(
+                    reserve_profile.time_until_next_generation_s[i]
+                ),
+                dt_s=dt_s, params=power_params,
+            )
+            step = reserve_step.power
+            assert reserve_active is not None
+            assert reserve_limited is not None
+            assert reserve_denied is not None
+            assert instantaneous_denied is not None
+            assert fdir_denied is not None
+            reserve_active[i] = reserve_step.reserve_active
+            reserve_limited[i] = reserve_step.reserve_limited_compute
+            reserve_denied[i] = reserve_step.reserve_denied_compute_W
+            instantaneous_denied[i] = reserve_step.instantaneous_denied_compute_W
+            fdir_denied[i] = reserve_step.fdir_denied_compute_W
         feasible[i] = step.power_feasible_compute_W
         executed[i] = step.executed_compute_W
         charge[i] = step.battery_charge_bus_W
@@ -250,14 +299,37 @@ def simulate(
         "electrical_balance_closes": balance_ok,
         "fdir_never_increases_power": bool(np.all(executed <= requested + 1e-9)),
     }
+    if reserve_profile is not None:
+        assert reserve_denied is not None
+        assert instantaneous_denied is not None
+        assert fdir_denied is not None
+        denied = requested - executed
+        invariant_results.update({
+            "essential_reserve_architecture_feasible": (
+                reserve_profile.architecture_condition == ESSENTIAL_RESERVE_FEASIBLE
+            ),
+            "reserve_never_increases_power": bool(
+                np.all(executed <= feasible + 1e-9)
+            ),
+            "compute_denial_attribution_closes": bool(np.allclose(
+                instantaneous_denied + reserve_denied + fdir_denied,
+                denied, atol=1e-9, rtol=0.0,
+            )),
+        })
     valid = invalid_reason is None and all(invariant_results.values())
     if invalid_reason is None and not valid:
         invalid_reason = "INVARIANT_FAILURE"
-    # Add the frozen diagnostic without changing validity.
-    invariant_results["initialization_domination_flag"] = _initialization_dominated(
-        soc, unserved, warmup_stop=warmup_stop_index, period_s=environment.period_s,
-        dt_s=dt_s, params=power_params,
-    )
+    if reserve_profile is None:
+        # Historical A0-M compatibility diagnostic; it does not change validity.
+        invariant_results["initialization_domination_flag"] = _initialization_dominated(
+            soc, unserved, warmup_stop=warmup_stop_index, period_s=environment.period_s,
+            dt_s=dt_s, params=power_params,
+        )
+    else:
+        # A0-R uses the precise name for the actual condition being diagnosed.
+        invariant_results["warmup_power_deficit_flag"] = bool(
+            np.any(unserved[:warmup_stop_index] > 1e-9)
+        )
     return CoSimulationResult(
         mode=mode,
         requested_compute_W=requested.copy(),
@@ -282,6 +354,12 @@ def simulate(
         valid_run=valid,
         invalid_reason=invalid_reason,
         invariant_results=invariant_results,
+        reserve_profile=reserve_profile,
+        reserve_active=reserve_active,
+        reserve_limited_compute=reserve_limited,
+        reserve_denied_compute_W=reserve_denied,
+        instantaneous_denied_compute_W=instantaneous_denied,
+        fdir_denied_compute_W=fdir_denied,
     )
 
 

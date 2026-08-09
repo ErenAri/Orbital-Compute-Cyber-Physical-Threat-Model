@@ -1,0 +1,52 @@
+{
+  "architecture": {
+    "comparison_baseline": "A0-M_MYOPIC_ADMISSION",
+    "id": "A0-R_RESERVE_AWARE_ESSENTIAL_LOAD_ADMISSION",
+    "changed_dimension": "compute admission with future housekeeping reserve",
+    "hardware_unchanged": true
+  },
+  "campaign_id": "RSIM-001-PWR1",
+  "environments": [
+    "E0_CANONICAL",
+    "E1_REPRESENTATIVE_ANALYTIC_LEO"
+  ],
+  "hardware": {
+    "battery_capacity_J": 102818124.44650389,
+    "charge_efficiency": 0.95,
+    "discharge_efficiency": 0.95,
+    "housekeeping_power_W": 2000.0,
+    "initial_SOC": 0.9,
+    "maximum_SOC": 0.9,
+    "minimum_SOC": 0.2,
+    "solar_bus_power_W": 53731.74872665535
+  },
+  "measurement_window_s": [
+    10800,
+    43200
+  ],
+  "modes": [
+    "POWER_CONSTRAINED",
+    "CLOSED_LOOP"
+  ],
+  "seed_count": 10,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "workloads": [
+    "constant_reference",
+    "diversified_stochastic",
+    "bursty_benign",
+    "queue_driven_benign",
+    "power_aware_benign",
+    "phase_shaped_candidate"
+  ]
+}
