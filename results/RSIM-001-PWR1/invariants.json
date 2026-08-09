@@ -1,0 +1,75 @@
+{
+  "all_required_invariants_pass": true,
+  "artifact_type": "rsim_001_pwr1_invariants",
+  "campaign_id": "RSIM-001-PWR1",
+  "maximum_absolute_cumulative_electrical_residual_J": 0.00010950421710731462,
+  "results": {
+    "battery_never_creates_energy": {
+      "evaluated_run_count": 240,
+      "pass_count": 240,
+      "status": "PASS"
+    },
+    "compute_denial_attribution_closes": {
+      "evaluated_run_count": 240,
+      "pass_count": 240,
+      "status": "PASS"
+    },
+    "electrical_balance_closes": {
+      "evaluated_run_count": 240,
+      "pass_count": 240,
+      "status": "PASS"
+    },
+    "essential_reserve_architecture_feasible": {
+      "evaluated_run_count": 240,
+      "pass_count": 240,
+      "status": "PASS"
+    },
+    "executed_le_design": {
+      "evaluated_run_count": 240,
+      "pass_count": 240,
+      "status": "PASS"
+    },
+    "executed_le_requested": {
+      "evaluated_run_count": 240,
+      "pass_count": 240,
+      "status": "PASS"
+    },
+    "fdir_never_increases_power": {
+      "evaluated_run_count": 240,
+      "pass_count": 240,
+      "status": "PASS"
+    },
+    "finite_state": {
+      "evaluated_run_count": 240,
+      "pass_count": 240,
+      "status": "PASS"
+    },
+    "housekeeping_priority": {
+      "evaluated_run_count": 240,
+      "pass_count": 240,
+      "status": "PASS"
+    },
+    "no_hidden_clipping": {
+      "evaluated_run_count": 240,
+      "pass_count": 240,
+      "status": "PASS"
+    },
+    "reserve_never_increases_power": {
+      "evaluated_run_count": 240,
+      "pass_count": 240,
+      "status": "PASS"
+    },
+    "soc_within_bounds": {
+      "evaluated_run_count": 240,
+      "pass_count": 240,
+      "status": "PASS"
+    },
+    "warmup_power_deficit_flag": {
+      "evaluated_run_count": 240,
+      "pass_count": 0,
+      "status": "DIAGNOSTIC"
+    }
+  },
+  "run_count": 240,
+  "schema_version": "rsim-001-pwr1.1"
+}

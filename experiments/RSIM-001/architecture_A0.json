@@ -1,0 +1,24 @@
+{
+  "schema_version": "rsim-001.architecture.1",
+  "architecture_id": "A0_CROSS_ENVIRONMENT_NOMINAL_FEASIBLE",
+  "status": "DERIVED_REPRESENTATIVE",
+  "not_flight_validated": true,
+  "representative_nominal_bus_load_W": 32000.0,
+  "solar_bus_power_W": 53731.74872665535,
+  "battery_energy_capacity_J": 102818124.44650389,
+  "battery_energy_capacity_kWh": 28.56059012402886,
+  "initial_SOC": 0.9,
+  "minimum_SOC": 0.2,
+  "maximum_SOC": 0.9,
+  "charge_efficiency": 0.95,
+  "discharge_efficiency": 0.95,
+  "maximum_charge_power_W": 53731.74872665535,
+  "maximum_discharge_power_W": 42000.0,
+  "housekeeping_power_W": 2000.0,
+  "compute_design_power_W": 40000.0,
+  "sizing_selection": {
+    "solar_bus_power": "maximum independently derived E0/E1 nominal requirement; E0 governs",
+    "battery_capacity": "maximum independently derived E0/E1 nominal eclipse requirement; E1 governs",
+    "not_sized_for_W5": true
+  }
+}

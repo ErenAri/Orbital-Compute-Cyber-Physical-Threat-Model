@@ -1,0 +1,58 @@
+{
+  "all_required_invariants_pass": true,
+  "artifact_type": "rsim_001_smoke_invariants",
+  "maximum_absolute_cumulative_electrical_residual_J": 0.00010950421710731462,
+  "results": {
+    "battery_never_creates_energy": {
+      "evaluated_run_count": 360,
+      "pass_count": 360,
+      "status": "PASS"
+    },
+    "electrical_balance_closes": {
+      "evaluated_run_count": 360,
+      "pass_count": 360,
+      "status": "PASS"
+    },
+    "executed_le_design": {
+      "evaluated_run_count": 360,
+      "pass_count": 360,
+      "status": "PASS"
+    },
+    "executed_le_requested": {
+      "evaluated_run_count": 360,
+      "pass_count": 360,
+      "status": "PASS"
+    },
+    "fdir_never_increases_power": {
+      "evaluated_run_count": 360,
+      "pass_count": 360,
+      "status": "PASS"
+    },
+    "finite_state": {
+      "evaluated_run_count": 360,
+      "pass_count": 360,
+      "status": "PASS"
+    },
+    "housekeeping_priority": {
+      "evaluated_run_count": 360,
+      "pass_count": 360,
+      "status": "PASS"
+    },
+    "initialization_domination_flag": {
+      "evaluated_run_count": 240,
+      "pass_count": 114,
+      "status": "DIAGNOSTIC"
+    },
+    "no_hidden_clipping": {
+      "evaluated_run_count": 360,
+      "pass_count": 360,
+      "status": "PASS"
+    },
+    "soc_within_bounds": {
+      "evaluated_run_count": 360,
+      "pass_count": 360,
+      "status": "PASS"
+    }
+  },
+  "run_count": 360
+}

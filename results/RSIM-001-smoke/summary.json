@@ -1,0 +1,2157 @@
+{
+  "aggregate_interpretation": "diagnostic all-run medians; invalid runs are retained and counted, not treated as authoritative valid statistics",
+  "aggregate_table": [
+    {
+      "compute_energy_denied_fraction_median": 0.008735444573078992,
+      "delta_peak_temperature_vs_reference_K_median": 7.868009896921308,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 962280699.5660437,
+      "final_battery_SOC_median": 0.2,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "CLOSED_LOOP",
+      "peak_node_temperature_K_median": 331.9153287241658,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 0,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 0.0,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": 0.22864634757036034,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": 0.22864634757036034,
+      "mode": "CLOSED_LOOP",
+      "peak_node_temperature_K_median": 324.04846038946386,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "constant_reference"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 1.8925479441373625,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": 0.22613687378849073,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": 0.20695540160236353,
+      "mode": "CLOSED_LOOP",
+      "peak_node_temperature_K_median": 325.9440979558891,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 17.37361300665961,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": 0.5695357668002646,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": 0.5693382069690526,
+      "mode": "CLOSED_LOOP",
+      "peak_node_temperature_K_median": 341.42390452754864,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 10.439470990364839,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": 0.33854102865629243,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": 0.33835940829777933,
+      "mode": "CLOSED_LOOP",
+      "peak_node_temperature_K_median": 334.4869935733152,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.01100456987660222,
+      "delta_peak_temperature_vs_reference_K_median": 7.749611814898458,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 959912746.6303649,
+      "final_battery_SOC_median": 0.2,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "CLOSED_LOOP",
+      "peak_node_temperature_K_median": 331.8045731828564,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 0,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.008735444573078992,
+      "delta_peak_temperature_vs_reference_K_median": 7.868009896921308,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 962280699.5660437,
+      "final_battery_SOC_median": 0.2,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "POWER_CONSTRAINED",
+      "peak_node_temperature_K_median": 331.9153287241658,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 0,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 0.0,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": 0.22864634757036034,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": 0.22864634757036034,
+      "mode": "POWER_CONSTRAINED",
+      "peak_node_temperature_K_median": 324.04846038946386,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "constant_reference"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 1.8925479441373625,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": 0.22613687378849073,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": 0.20695540160236353,
+      "mode": "POWER_CONSTRAINED",
+      "peak_node_temperature_K_median": 325.9440979558891,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 17.37361300665961,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": 0.5695357668002646,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": 0.5693382069690526,
+      "mode": "POWER_CONSTRAINED",
+      "peak_node_temperature_K_median": 341.42390452754864,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 10.439470990364839,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": 0.33854102865629243,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": 0.33835940829777933,
+      "mode": "POWER_CONSTRAINED",
+      "peak_node_temperature_K_median": 334.4869935733152,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.01100456987660222,
+      "delta_peak_temperature_vs_reference_K_median": 7.749611814898458,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 959912746.6303649,
+      "final_battery_SOC_median": 0.2,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "POWER_CONSTRAINED",
+      "peak_node_temperature_K_median": 331.8045731828564,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 0,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 7.915419178000008,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": null,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": null,
+      "mode": "THERMAL_ONLY",
+      "peak_node_temperature_K_median": 331.95695878432986,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 0.0,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": null,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": null,
+      "mode": "THERMAL_ONLY",
+      "peak_node_temperature_K_median": 324.04846038946386,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "constant_reference"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 1.8925479441373625,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": null,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": null,
+      "mode": "THERMAL_ONLY",
+      "peak_node_temperature_K_median": 325.9440979558891,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 17.37361300665961,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": null,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": null,
+      "mode": "THERMAL_ONLY",
+      "peak_node_temperature_K_median": 341.42390452754864,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 10.439470990364839,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": null,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": null,
+      "mode": "THERMAL_ONLY",
+      "peak_node_temperature_K_median": 334.4869935733152,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 7.807455920917306,
+      "environment_id": "E0_CANONICAL",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": null,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": null,
+      "mode": "THERMAL_ONLY",
+      "peak_node_temperature_K_median": 331.85931094613625,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.006718795504745121,
+      "delta_peak_temperature_vs_reference_K_median": 8.14221368579635,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 964079200.3611846,
+      "final_battery_SOC_median": 0.47600270284538226,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "CLOSED_LOOP",
+      "peak_node_temperature_K_median": 339.7207663066537,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 0,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 0.0,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": 0.4992162649969335,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": 0.20116403431300686,
+      "mode": "CLOSED_LOOP",
+      "peak_node_temperature_K_median": 331.57657659402605,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "constant_reference"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.002378352080836705,
+      "delta_peak_temperature_vs_reference_K_median": 1.9051517668286522,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 968308316.7632409,
+      "final_battery_SOC_median": 0.5144032125884741,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "CLOSED_LOOP",
+      "peak_node_temperature_K_median": 333.4755251173592,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 0,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0024430263428371485,
+      "delta_peak_temperature_vs_reference_K_median": 16.625644722089277,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 968238409.6828022,
+      "final_battery_SOC_median": 0.702716501473924,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "CLOSED_LOOP",
+      "peak_node_temperature_K_median": 348.20104707207673,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 1.0,
+      "time_thermally_throttled_s_median": 85.0,
+      "valid_run_count": 0,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0021392674169823434,
+      "delta_peak_temperature_vs_reference_K_median": 10.168905058439918,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 968524208.1387298,
+      "final_battery_SOC_median": 0.6056568170004202,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "CLOSED_LOOP",
+      "peak_node_temperature_K_median": 341.7510642318821,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 0,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.00693278464062082,
+      "delta_peak_temperature_vs_reference_K_median": 7.7689908398947125,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 963913497.7479401,
+      "final_battery_SOC_median": 0.4702015331270857,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "CLOSED_LOOP",
+      "peak_node_temperature_K_median": 339.3425089402805,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 0,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.006718795504745121,
+      "delta_peak_temperature_vs_reference_K_median": 8.14221368579635,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 964079200.3611846,
+      "final_battery_SOC_median": 0.47600270284538226,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "POWER_CONSTRAINED",
+      "peak_node_temperature_K_median": 339.7207663066537,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 0,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 0.0,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": 0.4992162649969335,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": 0.20116403431300686,
+      "mode": "POWER_CONSTRAINED",
+      "peak_node_temperature_K_median": 331.57657659402605,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "constant_reference"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.002378352080836705,
+      "delta_peak_temperature_vs_reference_K_median": 1.9051517668286522,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 968308316.7632409,
+      "final_battery_SOC_median": 0.5144032125884741,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "POWER_CONSTRAINED",
+      "peak_node_temperature_K_median": 333.4755251173592,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 0,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 16.751585553168297,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": 0.702716501473924,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "POWER_CONSTRAINED",
+      "peak_node_temperature_K_median": 348.3316150443237,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 0,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0021392674169823434,
+      "delta_peak_temperature_vs_reference_K_median": 10.168905058439918,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 968524208.1387298,
+      "final_battery_SOC_median": 0.6056568170004202,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "POWER_CONSTRAINED",
+      "peak_node_temperature_K_median": 341.7510642318821,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 0,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.00693278464062082,
+      "delta_peak_temperature_vs_reference_K_median": 7.7689908398947125,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 963913497.7479401,
+      "final_battery_SOC_median": 0.4702015331270857,
+      "invalid_run_count": 10,
+      "minimum_battery_SOC_median": 0.2,
+      "mode": "POWER_CONSTRAINED",
+      "peak_node_temperature_K_median": 339.3425089402805,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 0,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 8.178590135252989,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": null,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": null,
+      "mode": "THERMAL_ONLY",
+      "peak_node_temperature_K_median": 339.75516672927904,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 0.0,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": null,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": null,
+      "mode": "THERMAL_ONLY",
+      "peak_node_temperature_K_median": 331.57657659402605,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "constant_reference"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 1.9051550180843435,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": null,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": null,
+      "mode": "THERMAL_ONLY",
+      "peak_node_temperature_K_median": 333.47552850659895,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 16.751585553168297,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": null,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": null,
+      "mode": "THERMAL_ONLY",
+      "peak_node_temperature_K_median": 348.3316150443237,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 10.168905058530584,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": null,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": null,
+      "mode": "THERMAL_ONLY",
+      "peak_node_temperature_K_median": 341.7510642319728,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "compute_energy_denied_fraction_median": 0.0,
+      "delta_peak_temperature_vs_reference_K_median": 8.02854564225882,
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "executed_compute_energy_J_median": 970609850.7468897,
+      "final_battery_SOC_median": null,
+      "invalid_run_count": 0,
+      "minimum_battery_SOC_median": null,
+      "mode": "THERMAL_ONLY",
+      "peak_node_temperature_K_median": 339.61190745456076,
+      "requested_compute_energy_J_median": 970609850.7468897,
+      "run_count": 10,
+      "thermal_throttle_event_count_median": 0.0,
+      "time_thermally_throttled_s_median": 0.0,
+      "valid_run_count": 10,
+      "workload_id": "queue_driven_benign"
+    }
+  ],
+  "artifact_type": "rsim_001_smoke_summary",
+  "assumption_dominance_warning_count": 202,
+  "attack_validation": false,
+  "authoritative_scientific_result": false,
+  "automatic_classification": null,
+  "campaign_id": "RSIM-001-smoke",
+  "environments": [
+    "E0_CANONICAL",
+    "E1_REPRESENTATIVE_ANALYTIC_LEO"
+  ],
+  "git_commit": "2bf50b710c5028c469736791796328ef22636056",
+  "interpretation_rule": "temperature changes in constrained modes must be reported with executed-energy denial",
+  "invalid_run_count": 140,
+  "invalid_runs": [
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 0,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 1,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 2,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 3,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 4,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 5,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 6,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 7,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 8,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "diversified_stochastic"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "bursty_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E0_CANONICAL",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "queue_driven_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "power_aware_benign"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "POWER_CONSTRAINED",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "phase_shaped_candidate"
+    },
+    {
+      "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+      "mode": "CLOSED_LOOP",
+      "reason": "SYSTEM_POWER_DEFICIT",
+      "seed": 9,
+      "workload_id": "phase_shaped_candidate"
+    }
+  ],
+  "modes": [
+    "THERMAL_ONLY",
+    "POWER_CONSTRAINED",
+    "CLOSED_LOOP"
+  ],
+  "run_count": 360,
+  "runtime_s": 204.658383899834,
+  "schema_version": "rsim-001-smoke.1",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "spacecraft_validation": false,
+  "special_analyses": {
+    "E0_mode_A_against_existing_WRB": "see hard_gates.json; exact regression",
+    "E0_vs_E1_thermal_only": [
+      {
+        "E0_delta_peak_vs_W0_K": 7.915419178000008,
+        "E0_peak_node_temperature_K": 331.95695878432986,
+        "E1_delta_peak_vs_W0_K": 8.178590135252989,
+        "E1_minus_E0_delta_peak_K": 0.26317095725298145,
+        "E1_peak_node_temperature_K": 339.75516672927904,
+        "materiality_assessment": "not assigned; no RSIM smoke materiality threshold is preregistered",
+        "workload_id": "bursty_benign"
+      },
+      {
+        "E0_delta_peak_vs_W0_K": 0.0,
+        "E0_peak_node_temperature_K": 324.04846038946386,
+        "E1_delta_peak_vs_W0_K": 0.0,
+        "E1_minus_E0_delta_peak_K": 0.0,
+        "E1_peak_node_temperature_K": 331.57657659402605,
+        "materiality_assessment": "not assigned; no RSIM smoke materiality threshold is preregistered",
+        "workload_id": "constant_reference"
+      },
+      {
+        "E0_delta_peak_vs_W0_K": 1.8925479441373625,
+        "E0_peak_node_temperature_K": 325.9440979558891,
+        "E1_delta_peak_vs_W0_K": 1.9051550180843435,
+        "E1_minus_E0_delta_peak_K": 0.012607073946981018,
+        "E1_peak_node_temperature_K": 333.47552850659895,
+        "materiality_assessment": "not assigned; no RSIM smoke materiality threshold is preregistered",
+        "workload_id": "diversified_stochastic"
+      },
+      {
+        "E0_delta_peak_vs_W0_K": 17.37361300665961,
+        "E0_peak_node_temperature_K": 341.42390452754864,
+        "E1_delta_peak_vs_W0_K": 16.751585553168297,
+        "E1_minus_E0_delta_peak_K": -0.622027453491313,
+        "E1_peak_node_temperature_K": 348.3316150443237,
+        "materiality_assessment": "not assigned; no RSIM smoke materiality threshold is preregistered",
+        "workload_id": "phase_shaped_candidate"
+      },
+      {
+        "E0_delta_peak_vs_W0_K": 10.439470990364839,
+        "E0_peak_node_temperature_K": 334.4869935733152,
+        "E1_delta_peak_vs_W0_K": 10.168905058530584,
+        "E1_minus_E0_delta_peak_K": -0.2705659318342555,
+        "E1_peak_node_temperature_K": 341.7510642319728,
+        "materiality_assessment": "not assigned; no RSIM smoke materiality threshold is preregistered",
+        "workload_id": "power_aware_benign"
+      },
+      {
+        "E0_delta_peak_vs_W0_K": 7.807455920917306,
+        "E0_peak_node_temperature_K": 331.85931094613625,
+        "E1_delta_peak_vs_W0_K": 8.02854564225882,
+        "E1_minus_E0_delta_peak_K": 0.22108972134151372,
+        "E1_peak_node_temperature_K": 339.61190745456076,
+        "materiality_assessment": "not assigned; no RSIM smoke materiality threshold is preregistered",
+        "workload_id": "queue_driven_benign"
+      }
+    ],
+    "aggregation_basis": "all smoke runs including explicitly invalid runs; diagnostic medians only",
+    "classification": null,
+    "focus_workloads": {
+      "phase_shaped_candidate": [
+        {
+          "compute_energy_denied_fraction_median": 0.0,
+          "delta_peak_temperature_vs_reference_K_median": 17.37361300665961,
+          "environment_id": "E0_CANONICAL",
+          "executed_compute_energy_J_median": 970609850.7468897,
+          "final_battery_SOC_median": 0.5695357668002646,
+          "invalid_run_count": 0,
+          "minimum_battery_SOC_median": 0.5693382069690526,
+          "mode": "CLOSED_LOOP",
+          "peak_node_temperature_K_median": 341.42390452754864,
+          "requested_compute_energy_J_median": 970609850.7468897,
+          "run_count": 10,
+          "thermal_throttle_event_count_median": 0.0,
+          "time_thermally_throttled_s_median": 0.0,
+          "valid_run_count": 10,
+          "workload_id": "phase_shaped_candidate"
+        },
+        {
+          "compute_energy_denied_fraction_median": 0.0,
+          "delta_peak_temperature_vs_reference_K_median": 17.37361300665961,
+          "environment_id": "E0_CANONICAL",
+          "executed_compute_energy_J_median": 970609850.7468897,
+          "final_battery_SOC_median": 0.5695357668002646,
+          "invalid_run_count": 0,
+          "minimum_battery_SOC_median": 0.5693382069690526,
+          "mode": "POWER_CONSTRAINED",
+          "peak_node_temperature_K_median": 341.42390452754864,
+          "requested_compute_energy_J_median": 970609850.7468897,
+          "run_count": 10,
+          "thermal_throttle_event_count_median": 0.0,
+          "time_thermally_throttled_s_median": 0.0,
+          "valid_run_count": 10,
+          "workload_id": "phase_shaped_candidate"
+        },
+        {
+          "compute_energy_denied_fraction_median": 0.0,
+          "delta_peak_temperature_vs_reference_K_median": 17.37361300665961,
+          "environment_id": "E0_CANONICAL",
+          "executed_compute_energy_J_median": 970609850.7468897,
+          "final_battery_SOC_median": null,
+          "invalid_run_count": 0,
+          "minimum_battery_SOC_median": null,
+          "mode": "THERMAL_ONLY",
+          "peak_node_temperature_K_median": 341.42390452754864,
+          "requested_compute_energy_J_median": 970609850.7468897,
+          "run_count": 10,
+          "thermal_throttle_event_count_median": 0.0,
+          "time_thermally_throttled_s_median": 0.0,
+          "valid_run_count": 10,
+          "workload_id": "phase_shaped_candidate"
+        },
+        {
+          "compute_energy_denied_fraction_median": 0.0024430263428371485,
+          "delta_peak_temperature_vs_reference_K_median": 16.625644722089277,
+          "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+          "executed_compute_energy_J_median": 968238409.6828022,
+          "final_battery_SOC_median": 0.702716501473924,
+          "invalid_run_count": 10,
+          "minimum_battery_SOC_median": 0.2,
+          "mode": "CLOSED_LOOP",
+          "peak_node_temperature_K_median": 348.20104707207673,
+          "requested_compute_energy_J_median": 970609850.7468897,
+          "run_count": 10,
+          "thermal_throttle_event_count_median": 1.0,
+          "time_thermally_throttled_s_median": 85.0,
+          "valid_run_count": 0,
+          "workload_id": "phase_shaped_candidate"
+        },
+        {
+          "compute_energy_denied_fraction_median": 0.0,
+          "delta_peak_temperature_vs_reference_K_median": 16.751585553168297,
+          "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+          "executed_compute_energy_J_median": 970609850.7468897,
+          "final_battery_SOC_median": 0.702716501473924,
+          "invalid_run_count": 10,
+          "minimum_battery_SOC_median": 0.2,
+          "mode": "POWER_CONSTRAINED",
+          "peak_node_temperature_K_median": 348.3316150443237,
+          "requested_compute_energy_J_median": 970609850.7468897,
+          "run_count": 10,
+          "thermal_throttle_event_count_median": 0.0,
+          "time_thermally_throttled_s_median": 0.0,
+          "valid_run_count": 0,
+          "workload_id": "phase_shaped_candidate"
+        },
+        {
+          "compute_energy_denied_fraction_median": 0.0,
+          "delta_peak_temperature_vs_reference_K_median": 16.751585553168297,
+          "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+          "executed_compute_energy_J_median": 970609850.7468897,
+          "final_battery_SOC_median": null,
+          "invalid_run_count": 0,
+          "minimum_battery_SOC_median": null,
+          "mode": "THERMAL_ONLY",
+          "peak_node_temperature_K_median": 348.3316150443237,
+          "requested_compute_energy_J_median": 970609850.7468897,
+          "run_count": 10,
+          "thermal_throttle_event_count_median": 0.0,
+          "time_thermally_throttled_s_median": 0.0,
+          "valid_run_count": 10,
+          "workload_id": "phase_shaped_candidate"
+        }
+      ],
+      "power_aware_benign": [
+        {
+          "compute_energy_denied_fraction_median": 0.0,
+          "delta_peak_temperature_vs_reference_K_median": 10.439470990364839,
+          "environment_id": "E0_CANONICAL",
+          "executed_compute_energy_J_median": 970609850.7468897,
+          "final_battery_SOC_median": 0.33854102865629243,
+          "invalid_run_count": 0,
+          "minimum_battery_SOC_median": 0.33835940829777933,
+          "mode": "CLOSED_LOOP",
+          "peak_node_temperature_K_median": 334.4869935733152,
+          "requested_compute_energy_J_median": 970609850.7468897,
+          "run_count": 10,
+          "thermal_throttle_event_count_median": 0.0,
+          "time_thermally_throttled_s_median": 0.0,
+          "valid_run_count": 10,
+          "workload_id": "power_aware_benign"
+        },
+        {
+          "compute_energy_denied_fraction_median": 0.0,
+          "delta_peak_temperature_vs_reference_K_median": 10.439470990364839,
+          "environment_id": "E0_CANONICAL",
+          "executed_compute_energy_J_median": 970609850.7468897,
+          "final_battery_SOC_median": 0.33854102865629243,
+          "invalid_run_count": 0,
+          "minimum_battery_SOC_median": 0.33835940829777933,
+          "mode": "POWER_CONSTRAINED",
+          "peak_node_temperature_K_median": 334.4869935733152,
+          "requested_compute_energy_J_median": 970609850.7468897,
+          "run_count": 10,
+          "thermal_throttle_event_count_median": 0.0,
+          "time_thermally_throttled_s_median": 0.0,
+          "valid_run_count": 10,
+          "workload_id": "power_aware_benign"
+        },
+        {
+          "compute_energy_denied_fraction_median": 0.0,
+          "delta_peak_temperature_vs_reference_K_median": 10.439470990364839,
+          "environment_id": "E0_CANONICAL",
+          "executed_compute_energy_J_median": 970609850.7468897,
+          "final_battery_SOC_median": null,
+          "invalid_run_count": 0,
+          "minimum_battery_SOC_median": null,
+          "mode": "THERMAL_ONLY",
+          "peak_node_temperature_K_median": 334.4869935733152,
+          "requested_compute_energy_J_median": 970609850.7468897,
+          "run_count": 10,
+          "thermal_throttle_event_count_median": 0.0,
+          "time_thermally_throttled_s_median": 0.0,
+          "valid_run_count": 10,
+          "workload_id": "power_aware_benign"
+        },
+        {
+          "compute_energy_denied_fraction_median": 0.0021392674169823434,
+          "delta_peak_temperature_vs_reference_K_median": 10.168905058439918,
+          "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+          "executed_compute_energy_J_median": 968524208.1387298,
+          "final_battery_SOC_median": 0.6056568170004202,
+          "invalid_run_count": 10,
+          "minimum_battery_SOC_median": 0.2,
+          "mode": "CLOSED_LOOP",
+          "peak_node_temperature_K_median": 341.7510642318821,
+          "requested_compute_energy_J_median": 970609850.7468897,
+          "run_count": 10,
+          "thermal_throttle_event_count_median": 0.0,
+          "time_thermally_throttled_s_median": 0.0,
+          "valid_run_count": 0,
+          "workload_id": "power_aware_benign"
+        },
+        {
+          "compute_energy_denied_fraction_median": 0.0021392674169823434,
+          "delta_peak_temperature_vs_reference_K_median": 10.168905058439918,
+          "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+          "executed_compute_energy_J_median": 968524208.1387298,
+          "final_battery_SOC_median": 0.6056568170004202,
+          "invalid_run_count": 10,
+          "minimum_battery_SOC_median": 0.2,
+          "mode": "POWER_CONSTRAINED",
+          "peak_node_temperature_K_median": 341.7510642318821,
+          "requested_compute_energy_J_median": 970609850.7468897,
+          "run_count": 10,
+          "thermal_throttle_event_count_median": 0.0,
+          "time_thermally_throttled_s_median": 0.0,
+          "valid_run_count": 0,
+          "workload_id": "power_aware_benign"
+        },
+        {
+          "compute_energy_denied_fraction_median": 0.0,
+          "delta_peak_temperature_vs_reference_K_median": 10.168905058530584,
+          "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+          "executed_compute_energy_J_median": 970609850.7468897,
+          "final_battery_SOC_median": null,
+          "invalid_run_count": 0,
+          "minimum_battery_SOC_median": null,
+          "mode": "THERMAL_ONLY",
+          "peak_node_temperature_K_median": 341.7510642319728,
+          "requested_compute_energy_J_median": 970609850.7468897,
+          "run_count": 10,
+          "thermal_throttle_event_count_median": 0.0,
+          "time_thermally_throttled_s_median": 0.0,
+          "valid_run_count": 10,
+          "workload_id": "power_aware_benign"
+        }
+      ]
+    },
+    "power_constrained_vs_closed_loop": [
+      {
+        "closed_loop_denied_fraction_median": 0.008735444573078992,
+        "closed_loop_executed_energy_J_median": 962280699.5660437,
+        "closed_loop_minus_power_constrained_executed_energy_J": 0.0,
+        "closed_loop_minus_power_constrained_peak_K": 0.0,
+        "environment_id": "E0_CANONICAL",
+        "fdir_intervenes": false,
+        "throttle_events_median": 0.0,
+        "time_throttled_s_median": 0.0,
+        "workload_id": "bursty_benign"
+      },
+      {
+        "closed_loop_denied_fraction_median": 0.0,
+        "closed_loop_executed_energy_J_median": 970609850.7468897,
+        "closed_loop_minus_power_constrained_executed_energy_J": 0.0,
+        "closed_loop_minus_power_constrained_peak_K": 0.0,
+        "environment_id": "E0_CANONICAL",
+        "fdir_intervenes": false,
+        "throttle_events_median": 0.0,
+        "time_throttled_s_median": 0.0,
+        "workload_id": "constant_reference"
+      },
+      {
+        "closed_loop_denied_fraction_median": 0.0,
+        "closed_loop_executed_energy_J_median": 970609850.7468897,
+        "closed_loop_minus_power_constrained_executed_energy_J": 0.0,
+        "closed_loop_minus_power_constrained_peak_K": 0.0,
+        "environment_id": "E0_CANONICAL",
+        "fdir_intervenes": false,
+        "throttle_events_median": 0.0,
+        "time_throttled_s_median": 0.0,
+        "workload_id": "diversified_stochastic"
+      },
+      {
+        "closed_loop_denied_fraction_median": 0.0,
+        "closed_loop_executed_energy_J_median": 970609850.7468897,
+        "closed_loop_minus_power_constrained_executed_energy_J": 0.0,
+        "closed_loop_minus_power_constrained_peak_K": 0.0,
+        "environment_id": "E0_CANONICAL",
+        "fdir_intervenes": false,
+        "throttle_events_median": 0.0,
+        "time_throttled_s_median": 0.0,
+        "workload_id": "phase_shaped_candidate"
+      },
+      {
+        "closed_loop_denied_fraction_median": 0.0,
+        "closed_loop_executed_energy_J_median": 970609850.7468897,
+        "closed_loop_minus_power_constrained_executed_energy_J": 0.0,
+        "closed_loop_minus_power_constrained_peak_K": 0.0,
+        "environment_id": "E0_CANONICAL",
+        "fdir_intervenes": false,
+        "throttle_events_median": 0.0,
+        "time_throttled_s_median": 0.0,
+        "workload_id": "power_aware_benign"
+      },
+      {
+        "closed_loop_denied_fraction_median": 0.01100456987660222,
+        "closed_loop_executed_energy_J_median": 959912746.6303649,
+        "closed_loop_minus_power_constrained_executed_energy_J": 0.0,
+        "closed_loop_minus_power_constrained_peak_K": 0.0,
+        "environment_id": "E0_CANONICAL",
+        "fdir_intervenes": false,
+        "throttle_events_median": 0.0,
+        "time_throttled_s_median": 0.0,
+        "workload_id": "queue_driven_benign"
+      },
+      {
+        "closed_loop_denied_fraction_median": 0.006718795504745121,
+        "closed_loop_executed_energy_J_median": 964079200.3611846,
+        "closed_loop_minus_power_constrained_executed_energy_J": 0.0,
+        "closed_loop_minus_power_constrained_peak_K": 0.0,
+        "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+        "fdir_intervenes": false,
+        "throttle_events_median": 0.0,
+        "time_throttled_s_median": 0.0,
+        "workload_id": "bursty_benign"
+      },
+      {
+        "closed_loop_denied_fraction_median": 0.0,
+        "closed_loop_executed_energy_J_median": 970609850.7468897,
+        "closed_loop_minus_power_constrained_executed_energy_J": 0.0,
+        "closed_loop_minus_power_constrained_peak_K": 0.0,
+        "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+        "fdir_intervenes": false,
+        "throttle_events_median": 0.0,
+        "time_throttled_s_median": 0.0,
+        "workload_id": "constant_reference"
+      },
+      {
+        "closed_loop_denied_fraction_median": 0.002378352080836705,
+        "closed_loop_executed_energy_J_median": 968308316.7632409,
+        "closed_loop_minus_power_constrained_executed_energy_J": 0.0,
+        "closed_loop_minus_power_constrained_peak_K": 0.0,
+        "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+        "fdir_intervenes": false,
+        "throttle_events_median": 0.0,
+        "time_throttled_s_median": 0.0,
+        "workload_id": "diversified_stochastic"
+      },
+      {
+        "closed_loop_denied_fraction_median": 0.0024430263428371485,
+        "closed_loop_executed_energy_J_median": 968238409.6828022,
+        "closed_loop_minus_power_constrained_executed_energy_J": -2371441.06408751,
+        "closed_loop_minus_power_constrained_peak_K": -0.13056797224697902,
+        "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+        "fdir_intervenes": true,
+        "throttle_events_median": 1.0,
+        "time_throttled_s_median": 85.0,
+        "workload_id": "phase_shaped_candidate"
+      },
+      {
+        "closed_loop_denied_fraction_median": 0.0021392674169823434,
+        "closed_loop_executed_energy_J_median": 968524208.1387298,
+        "closed_loop_minus_power_constrained_executed_energy_J": 0.0,
+        "closed_loop_minus_power_constrained_peak_K": 0.0,
+        "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+        "fdir_intervenes": false,
+        "throttle_events_median": 0.0,
+        "time_throttled_s_median": 0.0,
+        "workload_id": "power_aware_benign"
+      },
+      {
+        "closed_loop_denied_fraction_median": 0.00693278464062082,
+        "closed_loop_executed_energy_J_median": 963913497.7479401,
+        "closed_loop_minus_power_constrained_executed_energy_J": 0.0,
+        "closed_loop_minus_power_constrained_peak_K": 0.0,
+        "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+        "fdir_intervenes": false,
+        "throttle_events_median": 0.0,
+        "time_throttled_s_median": 0.0,
+        "workload_id": "queue_driven_benign"
+      }
+    ],
+    "thermal_only_vs_power_constrained": [
+      {
+        "environment_id": "E0_CANONICAL",
+        "invalid_run_count": 10,
+        "power_constrained_denied_fraction_median": 0.008735444573078992,
+        "power_constrained_executed_energy_J_median": 962280699.5660437,
+        "power_constrained_minus_thermal_only_peak_K": -0.041630060164038696,
+        "power_constraints_prevent_full_requested_trace": true,
+        "workload_id": "bursty_benign"
+      },
+      {
+        "environment_id": "E0_CANONICAL",
+        "invalid_run_count": 0,
+        "power_constrained_denied_fraction_median": 0.0,
+        "power_constrained_executed_energy_J_median": 970609850.7468897,
+        "power_constrained_minus_thermal_only_peak_K": 0.0,
+        "power_constraints_prevent_full_requested_trace": false,
+        "workload_id": "constant_reference"
+      },
+      {
+        "environment_id": "E0_CANONICAL",
+        "invalid_run_count": 0,
+        "power_constrained_denied_fraction_median": 0.0,
+        "power_constrained_executed_energy_J_median": 970609850.7468897,
+        "power_constrained_minus_thermal_only_peak_K": 0.0,
+        "power_constraints_prevent_full_requested_trace": false,
+        "workload_id": "diversified_stochastic"
+      },
+      {
+        "environment_id": "E0_CANONICAL",
+        "invalid_run_count": 0,
+        "power_constrained_denied_fraction_median": 0.0,
+        "power_constrained_executed_energy_J_median": 970609850.7468897,
+        "power_constrained_minus_thermal_only_peak_K": 0.0,
+        "power_constraints_prevent_full_requested_trace": false,
+        "workload_id": "phase_shaped_candidate"
+      },
+      {
+        "environment_id": "E0_CANONICAL",
+        "invalid_run_count": 0,
+        "power_constrained_denied_fraction_median": 0.0,
+        "power_constrained_executed_energy_J_median": 970609850.7468897,
+        "power_constrained_minus_thermal_only_peak_K": 0.0,
+        "power_constraints_prevent_full_requested_trace": false,
+        "workload_id": "power_aware_benign"
+      },
+      {
+        "environment_id": "E0_CANONICAL",
+        "invalid_run_count": 10,
+        "power_constrained_denied_fraction_median": 0.01100456987660222,
+        "power_constrained_executed_energy_J_median": 959912746.6303649,
+        "power_constrained_minus_thermal_only_peak_K": -0.0547377632798316,
+        "power_constraints_prevent_full_requested_trace": true,
+        "workload_id": "queue_driven_benign"
+      },
+      {
+        "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+        "invalid_run_count": 10,
+        "power_constrained_denied_fraction_median": 0.006718795504745121,
+        "power_constrained_executed_energy_J_median": 964079200.3611846,
+        "power_constrained_minus_thermal_only_peak_K": -0.034400422625367355,
+        "power_constraints_prevent_full_requested_trace": true,
+        "workload_id": "bursty_benign"
+      },
+      {
+        "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+        "invalid_run_count": 0,
+        "power_constrained_denied_fraction_median": 0.0,
+        "power_constrained_executed_energy_J_median": 970609850.7468897,
+        "power_constrained_minus_thermal_only_peak_K": 0.0,
+        "power_constraints_prevent_full_requested_trace": false,
+        "workload_id": "constant_reference"
+      },
+      {
+        "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+        "invalid_run_count": 10,
+        "power_constrained_denied_fraction_median": 0.002378352080836705,
+        "power_constrained_executed_energy_J_median": 968308316.7632409,
+        "power_constrained_minus_thermal_only_peak_K": -3.389239736861782e-06,
+        "power_constraints_prevent_full_requested_trace": true,
+        "workload_id": "diversified_stochastic"
+      },
+      {
+        "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+        "invalid_run_count": 10,
+        "power_constrained_denied_fraction_median": 0.0,
+        "power_constrained_executed_energy_J_median": 970609850.7468897,
+        "power_constrained_minus_thermal_only_peak_K": 0.0,
+        "power_constraints_prevent_full_requested_trace": true,
+        "workload_id": "phase_shaped_candidate"
+      },
+      {
+        "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+        "invalid_run_count": 10,
+        "power_constrained_denied_fraction_median": 0.0021392674169823434,
+        "power_constrained_executed_energy_J_median": 968524208.1387298,
+        "power_constrained_minus_thermal_only_peak_K": -9.072209650184959e-11,
+        "power_constraints_prevent_full_requested_trace": true,
+        "workload_id": "power_aware_benign"
+      },
+      {
+        "environment_id": "E1_REPRESENTATIVE_ANALYTIC_LEO",
+        "invalid_run_count": 10,
+        "power_constrained_denied_fraction_median": 0.00693278464062082,
+        "power_constrained_executed_energy_J_median": 963913497.7479401,
+        "power_constrained_minus_thermal_only_peak_K": -0.26939851428028305,
+        "power_constraints_prevent_full_requested_trace": true,
+        "workload_id": "queue_driven_benign"
+      }
+    ]
+  },
+  "valid_run_count": 220,
+  "workloads": [
+    "constant_reference",
+    "diversified_stochastic",
+    "bursty_benign",
+    "queue_driven_benign",
+    "power_aware_benign",
+    "phase_shaped_candidate"
+  ]
+}

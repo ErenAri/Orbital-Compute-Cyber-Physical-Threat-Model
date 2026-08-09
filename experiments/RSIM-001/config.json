@@ -1,0 +1,27 @@
+{
+  "schema_version": "rsim-001-smoke.1",
+  "campaign_id": "RSIM-001-smoke",
+  "authoritative_scientific_result": false,
+  "architecture_id": "A0_CROSS_ENVIRONMENT_NOMINAL_FEASIBLE",
+  "dt_s": 1.0,
+  "simulation_duration_s": 43200.0,
+  "measurement_start_s": 10800.0,
+  "measurement_end_s_exclusive": 43200.0,
+  "measurement_window_basis": "canonical_wrb_wall_clock",
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "workloads": [
+    "constant_reference",
+    "diversified_stochastic",
+    "bursty_benign",
+    "queue_driven_benign",
+    "power_aware_benign",
+    "phase_shaped_candidate"
+  ],
+  "environments": ["E0_CANONICAL", "E1_REPRESENTATIVE_ANALYTIC_LEO"],
+  "modes": ["THERMAL_ONLY", "POWER_CONSTRAINED", "CLOSED_LOOP"],
+  "closed_loop_fdir_latency_s": 30.0,
+  "thermal_equivalence_tolerance_K": 1e-10,
+  "thermal_bridge_benchmark_intervals": 10000,
+  "projected_closed_loop_runtime_limit_s": 600.0,
+  "outputs": "results/RSIM-001-smoke"
+}
